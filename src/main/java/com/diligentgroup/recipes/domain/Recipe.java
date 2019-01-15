@@ -1,5 +1,7 @@
 package com.diligentgroup.recipes.domain;
 
+import java.sql.Clob;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -29,6 +31,7 @@ public class Recipe {
 	private Integer servings;
 	private String source;
 	private String url;
+	@Lob
 	private String directions;
 	
 	@Enumerated(value = EnumType.STRING)
@@ -42,7 +45,7 @@ public class Recipe {
 	
 	// cascade used so that nots are managed by a recipe
 	@OneToOne(cascade = CascadeType.ALL)
-	private Notes notes;
+	private Note notes;
 	
 	@ManyToMany
 	@JoinTable(name = "recipe_category", 
@@ -123,11 +126,18 @@ public class Recipe {
 	}
 
 	public Set<Ingredient> getIngredients() {
+		if (ingredients == null) {
+			ingredients = new HashSet<Ingredient>();
+		}
 		return ingredients;
 	}
 
 	public void setIngredients(Set<Ingredient> ingredients) {
 		this.ingredients = ingredients;
+	}
+	
+	public void addIngredient(Ingredient ingredient) {
+		getIngredients().add(ingredient);
 	}
 
 	public Byte[] getImage() {
@@ -138,20 +148,27 @@ public class Recipe {
 		this.image = image;
 	}
 
-	public Notes getNotes() {
+	public Note getNotes() {
 		return notes;
 	}
 
-	public void setNotes(Notes notes) {
+	public void setNotes(Note notes) {
 		this.notes = notes;
 	}
 
 	public Set<Category> getCategories() {
+		if (this.categories == null) {
+			this.categories = new HashSet<Category>();
+		}
 		return categories;
 	}
 
 	public void setCategories(Set<Category> categories) {
 		this.categories = categories;
+	}
+	
+	public void addCategory(Category category) {
+		getCategories().add(category);
 	}
 
 }

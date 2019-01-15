@@ -8,7 +8,7 @@ import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Notes {
+public class Note {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
