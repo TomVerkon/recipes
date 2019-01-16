@@ -1,6 +1,5 @@
 package com.diligentgroup.recipes.domain;
 
-import java.sql.Clob;
 import java.util.HashSet;
 import java.util.Set;
 
