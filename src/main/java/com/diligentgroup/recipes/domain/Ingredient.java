@@ -13,6 +13,15 @@ import javax.persistence.OneToOne;
 @Entity
 public class Ingredient {
 	
+	public Ingredient() {
+	}
+
+	public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom) {
+		this.description = description;
+		this.amount = amount;
+		this.uom = uom;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
