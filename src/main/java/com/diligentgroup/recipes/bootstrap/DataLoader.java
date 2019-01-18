@@ -167,18 +167,22 @@ public class DataLoader implements CommandLineRunner {
 		Note recipeNote = new Note();
 		recipeNote.setRecipeNotes(note);
 		recipe.setNotes(recipeNote);
+		System.out.println(recipeNote);
 
 		recipe.setServings(servings);
 		recipe.setSource(source);
 		recipe.setUrl(url);
+		//System.out.println(recipe);
 		return recipe;
+		
 	}
 
 	private void loadData() {
 
 		createCategories();
 		createUnitOfMeasures();
-		recipeRepository.save(buildGuacamoleRecipe());
+		Recipe savedGuacaRecipe = recipeRepository.save(buildGuacamoleRecipe());
+		System.out.println(savedGuacaRecipe.getNotes());
 		recipeRepository.save(buildChickenRecipe());
 
 	}
