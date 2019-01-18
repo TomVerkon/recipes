@@ -11,6 +11,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.imageio.ImageIO;
+import javax.transaction.Transactional;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -25,6 +26,9 @@ import com.diligentgroup.recipes.repositories.CategoryRepository;
 import com.diligentgroup.recipes.repositories.RecipeRepository;
 import com.diligentgroup.recipes.repositories.UnitOfMeasureRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Component
 public class DataLoader implements CommandLineRunner {
 
@@ -77,9 +81,7 @@ public class DataLoader implements CommandLineRunner {
 
 	private Recipe buildGuacamoleRecipe() {
 
-		final String DESC = "Guacamole, a dip made from avocados, "
-				+ "is originally from Mexico. The name is derived from two Aztec Nahuatl "
-				+ "words—ahuacatl (avocado) and molli (sauce).";
+		final String DESC = "Perfect Guacamole";
 		final String DIRECTIONS = "1 Cut avocado, remove flesh: Cut the avocados in half. Remove seed. Score the inside of the avocado with a blunt knife and scoop out the flesh with a spoon. (See How to Cut and Peel an Avocado.) Place in a bowl.\r\n"
 				+ "\r\n"
 				+ "2 Mash with a fork: Using a fork, roughly mash the avocado. (Don't overdo it! The guacamole should be a little chunky.)\r\n"
@@ -177,13 +179,16 @@ public class DataLoader implements CommandLineRunner {
 		
 	}
 
+	@Transactional
 	private void loadData() {
+		log.info("Starting to load Data");
 
 		createCategories();
 		createUnitOfMeasures();
 		Recipe savedGuacaRecipe = recipeRepository.save(buildGuacamoleRecipe());
 		System.out.println(savedGuacaRecipe.getNotes());
 		recipeRepository.save(buildChickenRecipe());
+		log.info("Finished loading Data");
 
 	}
 

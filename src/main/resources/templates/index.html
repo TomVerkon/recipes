@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8"/>
+<meta charset="UTF-8" />
 <title>Recipe Home</title>
 </head>
 <body>
 	<h1>My Recipes!</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody th:each="recipe : ${recipes}">
-                <tr>
-                    <td th:text="${recipe.description}">XXX</td>
-                </tr>
-            </tbody>
-        </table>
-	
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody th:each="recipe : ${recipes}">
+			<tr>
+				<td th:text="${recipe.id}">XXX</td>
+				<td th:text="${recipe.description}">XXX</td>
+			</tr>
+		</tbody>
+	</table>
+
 </body>
 </html>
