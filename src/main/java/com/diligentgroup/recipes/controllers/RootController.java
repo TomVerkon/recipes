@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.diligentgroup.recipes.services.RecipeService;
+import com.diligentgroup.recipes.services.RecipeServiceImpl;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -12,10 +12,10 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 public class RootController {
 	
-	private RecipeService recipeService;
+	private RecipeServiceImpl recipeService;
 
 	
-	public RootController(RecipeService recipeService) {
+	public RootController(RecipeServiceImpl recipeService) {
 		this.recipeService = recipeService;
 	}
 
