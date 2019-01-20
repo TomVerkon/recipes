@@ -228,7 +228,8 @@ public class DataLoader implements CommandLineRunner {
 			category.setDescription(description);
 			categories.add(category);
 		});
-		categoryRepository.saveAll(categories);
+		// loaded by data.sql for testing
+		// categoryRepository.saveAll(categories);
 	}
 
 	void createUnitOfMeasures() {
@@ -242,7 +243,8 @@ public class DataLoader implements CommandLineRunner {
 			unitOfMeasure.setDescription(description);
 			unitOfMeasures.add(unitOfMeasure);
 		});
-		unitOfMeasureRepository.saveAll(unitOfMeasures);
+		// loaded by data.sql for testing
+		// unitOfMeasureRepository.saveAll(unitOfMeasures);
 	}
 
 	private Byte[] fetchImageAsByteArray(String location) {
