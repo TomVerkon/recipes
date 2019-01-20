@@ -12,19 +12,19 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 @Data
-@EqualsAndHashCode(exclude = {"recipe"})
+@EqualsAndHashCode(exclude = { "recipe" })
 @Entity
 public class Note {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	// no cascade because recipe manages this relationship
 	@ToString.Exclude
 	@OneToOne
 	private Recipe recipe;
-	
+
 	@Lob
 	private String recipeNotes;
 

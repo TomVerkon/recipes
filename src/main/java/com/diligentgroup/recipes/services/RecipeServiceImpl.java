@@ -13,21 +13,19 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Service
 public class RecipeServiceImpl implements RecipeService {
-	
+
 	private RecipeRepository recipeRepository;
 
 	public RecipeServiceImpl(RecipeRepository recipeRepository) {
 		super();
 		this.recipeRepository = recipeRepository;
 	}
-	
+
 	public Set<Recipe> getAllRecipes() {
 		log.info("Entering getAllRecipes");
 		Set<Recipe> recipes = new HashSet<>();
 		recipeRepository.findAll().forEach(recipes::add);
 		return recipes;
 	}
-	
-	
 
 }

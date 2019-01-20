@@ -17,9 +17,15 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Recipe {
 
@@ -36,24 +42,22 @@ public class Recipe {
 
 	@Lob
 	private String directions;
-	
+
 	@Enumerated(value = EnumType.STRING)
 	private Difficulty difficulty;
-	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy="recipe")
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
 	private Set<Ingredient> ingredients = new HashSet<>();
-	
+
 	@Lob
 	private Byte[] image;
-	
+
 	// cascade used so that nots are managed by a recipe
 	@OneToOne(cascade = CascadeType.ALL)
 	private Note notes;
-	
+
 	@ManyToMany
-	@JoinTable(name = "recipe_category", 
-		joinColumns = @JoinColumn(name = "recipe_id"),
-				inverseJoinColumns = @JoinColumn(name = "category_id"))
+	@JoinTable(name = "recipe_category", joinColumns = @JoinColumn(name = "recipe_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
 	private Set<Category> categories = new HashSet<>();
 
 	public void addIngredient(Ingredient ingredient) {

@@ -18,9 +18,9 @@ import com.diligentgroup.recipes.domain.Recipe;
 import com.diligentgroup.recipes.repositories.RecipeRepository;
 
 public class RecipeServiceTest {
-	
+
 	RecipeService recipeService;
-	
+
 	@Mock
 	RecipeRepository recipeRepository;
 
@@ -36,12 +36,11 @@ public class RecipeServiceTest {
 
 	@Test
 	public void getAllRecipes() {
-		Recipe recipe = new Recipe();
 		Set<Recipe> recipeData = new HashSet<>();
-		recipeData.add(recipe);
-		
+		recipeData.add(Recipe.builder().id(1L).build());
+
 		when(recipeService.getAllRecipes()).thenReturn(recipeData);
-		
+
 		Set<Recipe> recipes = recipeService.getAllRecipes();
 		assertEquals(1L, recipes.size());
 		verify(recipeRepository, times(1)).findAll();

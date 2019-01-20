@@ -7,10 +7,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class CategoryTest {
-	
+
 	Category category;
-	
-	
+
 	Long idValue = 4L;
 
 	@Before

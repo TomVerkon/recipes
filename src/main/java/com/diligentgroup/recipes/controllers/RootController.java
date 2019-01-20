@@ -11,17 +11,14 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Controller
 public class RootController {
-	
+
 	private RecipeServiceImpl recipeService;
 
-	
 	public RootController(RecipeServiceImpl recipeService) {
 		this.recipeService = recipeService;
 	}
 
-
-
-	@RequestMapping({"", "/", "index", "/index.html"})
+	@RequestMapping({ "", "/", "index", "/index.html" })
 	public String getIndexPage(Model model) {
 		log.info("Enter getIndexPage()");
 		model.addAttribute("recipes", recipeService.getAllRecipes());

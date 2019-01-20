@@ -58,7 +58,8 @@ public class DataLoader implements CommandLineRunner {
 	private RecipeRepository recipeRepository;
 	private UnitOfMeasureRepository unitOfMeasureRepository;
 
-	public DataLoader(CategoryRepository categoryRepository, RecipeRepository recipeRepository,
+	public DataLoader(CategoryRepository categoryRepository,
+			RecipeRepository recipeRepository,
 			UnitOfMeasureRepository unitOfMeasureRepository) {
 		super();
 		this.categoryRepository = categoryRepository;
@@ -74,8 +75,11 @@ public class DataLoader implements CommandLineRunner {
 	}
 
 	private Ingredient createIngredient(Object[] ingredientComponent) {
-		Ingredient ingredient = new Ingredient((String) ingredientComponent[1], (BigDecimal) ingredientComponent[0],
-				unitOfMeasureRepository.findByDescription((String) ingredientComponent[2]).get());
+		Ingredient ingredient = new Ingredient((String) ingredientComponent[1],
+				(BigDecimal) ingredientComponent[0],
+				unitOfMeasureRepository
+						.findByDescription((String) ingredientComponent[2])
+						.get());
 		return ingredient;
 	}
 
@@ -96,44 +100,63 @@ public class DataLoader implements CommandLineRunner {
 				+ "\r\n"
 				+ "Chilling tomatoes hurts their flavor, so if you want to add chopped tomato to your guacamole, add it just before serving.";
 		final String IMAGE_URL = "https://www.simplyrecipes.com/wp-content/uploads/2014/05/guacamole-horiz-a-1600.jpg";
-		final Object[][] INGREDIENT_COMPONENTS = { { new BigDecimal(2), "ripe avocados", EACH },
+		final Object[][] INGREDIENT_COMPONENTS = {
+				{ new BigDecimal(2), "ripe avocados", EACH },
 				{ new BigDecimal(0.5), "Kosher salt", TEASPOON },
-				{ new BigDecimal(1), "fresh lime juice or lemon juice", TABLESPOON },
-				{ new BigDecimal(0.25), "minced red onion or thinly sliced green onion", CUP },
-				{ new BigDecimal(2), "serrano chiles, stems and seeds removed, minced", EACH },
-				{ new BigDecimal(2), "cilantro (leaves and tender stems), finely chopped", TABLESPOONS },
+				{ new BigDecimal(1), "fresh lime juice or lemon juice",
+						TABLESPOON },
+				{ new BigDecimal(0.25),
+						"minced red onion or thinly sliced green onion", CUP },
+				{ new BigDecimal(2),
+						"serrano chiles, stems and seeds removed, minced",
+						EACH },
+				{ new BigDecimal(2),
+						"cilantro (leaves and tender stems), finely chopped",
+						TABLESPOONS },
 				{ new BigDecimal(1), "freshly grated black pepper", DASH },
-				{ new BigDecimal(0.5), "ripe tomato, seeds and pulp removed, chopped", EACH } };
+				{ new BigDecimal(0.5),
+						"ripe tomato, seeds and pulp removed, chopped",
+						EACH } };
 		final String NOTE = "Garnish with red radishes or jicama. Serve with tortilla chips.";
 		final Integer SERVINGS = 4;
 		final String SOURCE = "Simply Recipes";
 		final String URL = "https://www.simplyrecipes.com/recipes/perfect_guacamole/";
 
-		return buildRecipe(MEXICAN, 10, 0, DESC, Difficulty.EASY, DIRECTIONS, IMAGE_URL, INGREDIENT_COMPONENTS, NOTE,
-				SERVINGS, SOURCE, URL);
+		return buildRecipe(MEXICAN, 10, 0, DESC, Difficulty.EASY, DIRECTIONS,
+				IMAGE_URL, INGREDIENT_COMPONENTS, NOTE, SERVINGS, SOURCE, URL);
 	}
 
 	private Recipe buildChickenRecipe() {
 
 		final String DESC = "Spicy Grilled Chicken Tacos";
-		final String DIRECTIONS = "1 Prepare a gas or charcoal grill for medium-high, direct heat.\r\n" + "\r\n"
+		final String DIRECTIONS = "1 Prepare a gas or charcoal grill for medium-high, direct heat.\r\n"
+				+ "\r\n"
 				+ "2 Make the marinade and coat the chicken: In a large bowl, stir together the chili powder, oregano, cumin, sugar, salt, garlic and orange zest. Stir in the orange juice and olive oil to make a loose paste. Add the chicken to the bowl and toss to coat all over.\r\n"
-				+ "\r\n" + "Set aside to marinate while the grill heats and you prepare the rest of the toppings.\r\n"
+				+ "\r\n"
+				+ "Set aside to marinate while the grill heats and you prepare the rest of the toppings.\r\n"
 				+ "\r\n"
 				+ "3 Grill the chicken: Grill the chicken for 3 to 4 minutes per side, or until a thermometer inserted into the thickest part of the meat registers 165F. Transfer to a plate and rest for 5 minutes.\r\n"
 				+ "\r\n"
 				+ "4 Warm the tortillas: Place each tortilla on the grill or on a hot, dry skillet over medium-high heat. As soon as you see pockets of the air start to puff up in the tortilla, turn it with tongs and heat for a few seconds on the other side.\r\n"
-				+ "\r\n" + "Wrap warmed tortillas in a tea towel to keep them warm until serving.\r\n" + "\r\n"
+				+ "\r\n"
+				+ "Wrap warmed tortillas in a tea towel to keep them warm until serving.\r\n"
+				+ "\r\n"
 				+ "5 Assemble the tacos: Slice the chicken into strips. On each tortilla, place a small handful of arugula. Top with chicken slices, sliced avocado, radishes, tomatoes, and onion slices. Drizzle with the thinned sour cream. Serve with lime wedges.";
 		final String IMAGE_URL = "https://www.simplyrecipes.com/wp-content/uploads/2017/05/2017-05-29-GrilledChickenTacos-3.jpg";
-		final Object[][] INGREDIENT_COMPONENTS = { { new BigDecimal(2), "ancho chili powder", TABLESPOONS },
-				{ new BigDecimal(1), "dried oregano", TEASPOON }, { new BigDecimal(1), "dried cumin", TEASPOON },
-				{ new BigDecimal(1), "sugar", TEASPOON }, { new BigDecimal(0.5), "salt", TEASPOON },
+		final Object[][] INGREDIENT_COMPONENTS = {
+				{ new BigDecimal(2), "ancho chili powder", TABLESPOONS },
+				{ new BigDecimal(1), "dried oregano", TEASPOON },
+				{ new BigDecimal(1), "dried cumin", TEASPOON },
+				{ new BigDecimal(1), "sugar", TEASPOON },
+				{ new BigDecimal(0.5), "salt", TEASPOON },
 				{ new BigDecimal(1), "garlic clove, finely chopped", EACH },
 				{ new BigDecimal(1), "finely grated orange zest", TABLESPOON },
-				{ new BigDecimal(3), "fresh-squeezed orange juice", TABLESPOONS },
+				{ new BigDecimal(3), "fresh-squeezed orange juice",
+						TABLESPOONS },
 				{ new BigDecimal(2), "olive oil", TABLESPOONS },
-				{ new BigDecimal(6), "skinless, boneless chicken thighs (1 1/4 pounds)", EACH },
+				{ new BigDecimal(6),
+						"skinless, boneless chicken thighs (1 1/4 pounds)",
+						EACH },
 				{ new BigDecimal(8), "small corn tortillas", EACH },
 				{ new BigDecimal(3), "packed baby arugula (3 ounces)", CUPS },
 				{ new BigDecimal(2), "medium ripe avocados, sliced", EACH },
@@ -141,22 +164,25 @@ public class DataLoader implements CommandLineRunner {
 				{ new BigDecimal(0.5), "pint cherry tomatoes, halved", PINT },
 				{ new BigDecimal(0.25), "red onion, thinly sliced", EACH },
 				{ new BigDecimal(0.5), "Roughly chopped cilantro", CUP },
-				{ new BigDecimal(0.5), "sour cream thinned with 1/4 cup milk", CUP },
+				{ new BigDecimal(0.5), "sour cream thinned with 1/4 cup milk",
+						CUP },
 				{ new BigDecimal(1), "lime, cut into wedges", EACH } };
 		final String NOTE = "Look for ancho chile powder with the Mexican ingredients at your grocery store, on buy it online. (If you can't find ancho chili powder, you replace the ancho chili, the oregano, and the cumin with 2 1/2 tablespoons regular chili powder, though the flavor won't be quite the same.)";
 		final Integer SERVINGS = 6;
 		final String SOURCE = "Simply Recipes";
 		final String URL = "https://www.simplyrecipes.com/recipes/spicy_grilled_chicken_tacos/";
 
-		return buildRecipe(MEXICAN, 20, 15, DESC, Difficulty.EASY, DIRECTIONS, IMAGE_URL, INGREDIENT_COMPONENTS, NOTE,
-				SERVINGS, SOURCE, URL);
+		return buildRecipe(MEXICAN, 20, 15, DESC, Difficulty.EASY, DIRECTIONS,
+				IMAGE_URL, INGREDIENT_COMPONENTS, NOTE, SERVINGS, SOURCE, URL);
 	}
 
-	private Recipe buildRecipe(String category, Integer prepTime, Integer cookTime, String description,
-			Difficulty difficulty, String directions, String imageUrl, Object[][] ingredients, String note,
-			Integer servings, String source, String url) {
+	private Recipe buildRecipe(String category, Integer prepTime,
+			Integer cookTime, String description, Difficulty difficulty,
+			String directions, String imageUrl, Object[][] ingredients,
+			String note, Integer servings, String source, String url) {
 		Recipe recipe = new Recipe();
-		recipe.addCategory(categoryRepository.findByDescription(category).get());
+		recipe.addCategory(
+				categoryRepository.findByDescription(category).get());
 		recipe.setPrepTime(prepTime);
 		recipe.setCookTime(cookTime);
 		recipe.setDescription(description);
@@ -174,9 +200,9 @@ public class DataLoader implements CommandLineRunner {
 		recipe.setServings(servings);
 		recipe.setSource(source);
 		recipe.setUrl(url);
-		//System.out.println(recipe);
+		// System.out.println(recipe);
 		return recipe;
-		
+
 	}
 
 	@Transactional
@@ -194,7 +220,8 @@ public class DataLoader implements CommandLineRunner {
 
 	void createCategories() {
 
-		final String[] categoryDescriptions = { AMERICAN, ITALIAN, FAST_FOOD, MEXICAN };
+		final String[] categoryDescriptions = { AMERICAN, ITALIAN, FAST_FOOD,
+				MEXICAN };
 		Set<Category> categories = new HashSet<>();
 		Arrays.stream(categoryDescriptions).forEach(description -> {
 			Category category = new Category();
@@ -206,8 +233,9 @@ public class DataLoader implements CommandLineRunner {
 
 	void createUnitOfMeasures() {
 
-		final String[] uomDescriptions = { TEASPOON, TEASPOONS, TABLESPOON, TABLESPOONS, CUP, CUPS, PINCH, PINCHES,
-				OUNCE, OUNCES, EACH, DASH, PINT };
+		final String[] uomDescriptions = { TEASPOON, TEASPOONS, TABLESPOON,
+				TABLESPOONS, CUP, CUPS, PINCH, PINCHES, OUNCE, OUNCES, EACH,
+				DASH, PINT };
 		Set<UnitOfMeasure> unitOfMeasures = new HashSet<>();
 		Arrays.stream(uomDescriptions).forEach(description -> {
 			UnitOfMeasure unitOfMeasure = new UnitOfMeasure();
