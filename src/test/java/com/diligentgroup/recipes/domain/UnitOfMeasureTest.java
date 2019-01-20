@@ -31,10 +31,10 @@ public class UnitOfMeasureTest {
 	}
 
 	@Test
-	@DirtiesContext
+	//@DirtiesContext
 	public void testFindByTsps() {
-		Optional<UnitOfMeasure> optionalUom = repository.findByDescription("Tsps");
-		assertEquals("Tsps", optionalUom.get().getDescription());
+		Optional<UnitOfMeasure> optionalUom = repository.findByDescription("Teaspoon");
+		assertEquals("Teaspoon", optionalUom.get().getDescription());
 	}
 
 	@Test
