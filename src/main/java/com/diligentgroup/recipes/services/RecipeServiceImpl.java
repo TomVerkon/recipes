@@ -13,11 +13,11 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
-public class RecipeService {
+public class RecipeServiceImpl {
 	
 	private RecipeRepository recipeRepository;
 
-	public RecipeService(RecipeRepository recipeRepository) {
+	public RecipeServiceImpl(RecipeRepository recipeRepository) {
 		super();
 		this.recipeRepository = recipeRepository;
 	}
