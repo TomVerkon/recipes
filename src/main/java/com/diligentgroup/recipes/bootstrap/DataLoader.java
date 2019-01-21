@@ -161,7 +161,7 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
 
         guacRecipe.getCategories().add(americanCategory);
         guacRecipe.getCategories().add(mexicanCategory);
-        guacRecipe.setImage(fetchImageAsByteArray("https://www.simplyrecipes.com/wp-content/uploads/2014/05/guacamole-horiz-a-1600.jpg"));
+        //guacRecipe.setImage(fetchImageAsByteArray("https://www.simplyrecipes.com/wp-content/uploads/2014/05/guacamole-horiz-a-1600.jpg"));
 
         //add to return list
         recipes.add(guacRecipe);
@@ -220,7 +220,7 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
 
         tacosRecipe.getCategories().add(americanCategory);
         tacosRecipe.getCategories().add(mexicanCategory);
-        tacosRecipe.setImage(fetchImageAsByteArray("https://www.simplyrecipes.com/wp-content/uploads/2017/05/2017-05-29-GrilledChickenTacos-3.jpg"));
+        //tacosRecipe.setImage(fetchImageAsByteArray("https://www.simplyrecipes.com/wp-content/uploads/2017/05/2017-05-29-GrilledChickenTacos-3.jpg"));
 
         recipes.add(tacosRecipe);
         return recipes;
