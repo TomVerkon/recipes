@@ -7,16 +7,13 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 import javax.imageio.ImageIO;
 import javax.transaction.Transactional;
 
-import org.springframework.boot.CommandLineRunner;
+import org.hibernate.ObjectNotFoundException;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
@@ -40,6 +37,14 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
     private final CategoryRepository categoryRepository;
     private final RecipeRepository recipeRepository;
     private final UnitOfMeasureRepository unitOfMeasureRepository;
+    private final String EACH = "Each";
+    private final String TABLESPOON = "Tablespoon";
+    private final String TEASPOON = "Teaspoon";
+    private final String DASH = "Dash";
+    private final String PINT = "Pint";
+    private final String CUP = "Cup";
+    private final String AMERICAN = "American";
+    private final String MEXICAN = "Mexican";
 
     public DataLoader(CategoryRepository categoryRepository, RecipeRepository recipeRepository, UnitOfMeasureRepository unitOfMeasureRepository) {
         this.categoryRepository = categoryRepository;
@@ -59,40 +64,40 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
         List<Recipe> recipes = new ArrayList<>(2);
 
         //get UOMs
-        Optional<UnitOfMeasure> eachUomOptional = unitOfMeasureRepository.findByDescription("Each");
+        Optional<UnitOfMeasure> eachUomOptional = unitOfMeasureRepository.findByDescription(EACH);
 
         if(!eachUomOptional.isPresent()){
-            throw new RuntimeException("Expected UOM Not Found");
+            throw new ObjectNotFoundException(EACH, UnitOfMeasure.class.getSimpleName());
         }
 
-        Optional<UnitOfMeasure> tableSpoonUomOptional = unitOfMeasureRepository.findByDescription("Tablespoon");
+        Optional<UnitOfMeasure> tableSpoonUomOptional = unitOfMeasureRepository.findByDescription(TABLESPOON);
 
         if(!tableSpoonUomOptional.isPresent()){
-            throw new RuntimeException("Expected UOM Not Found");
+            throw new ObjectNotFoundException(TABLESPOON, UnitOfMeasure.class.getSimpleName());
         }
 
-        Optional<UnitOfMeasure> teaSpoonUomOptional = unitOfMeasureRepository.findByDescription("Teaspoon");
+        Optional<UnitOfMeasure> teaSpoonUomOptional = unitOfMeasureRepository.findByDescription(TEASPOON);
 
         if(!teaSpoonUomOptional.isPresent()){
-            throw new RuntimeException("Expected UOM Not Found");
+            throw new ObjectNotFoundException(TEASPOON, UnitOfMeasure.class.getSimpleName());
         }
 
-        Optional<UnitOfMeasure> dashUomOptional = unitOfMeasureRepository.findByDescription("Dash");
+        Optional<UnitOfMeasure> dashUomOptional = unitOfMeasureRepository.findByDescription(DASH);
 
         if(!dashUomOptional.isPresent()){
-            throw new RuntimeException("Expected UOM Not Found");
+            throw new ObjectNotFoundException(DASH, UnitOfMeasure.class.getSimpleName());
         }
 
-        Optional<UnitOfMeasure> pintUomOptional = unitOfMeasureRepository.findByDescription("Pint");
+        Optional<UnitOfMeasure> pintUomOptional = unitOfMeasureRepository.findByDescription(PINT);
 
         if(!pintUomOptional.isPresent()){
-            throw new RuntimeException("Expected UOM Not Found");
+            throw new ObjectNotFoundException(PINT, UnitOfMeasure.class.getSimpleName());
         }
 
-        Optional<UnitOfMeasure> cupsUomOptional = unitOfMeasureRepository.findByDescription("Cup");
+        Optional<UnitOfMeasure> cupsUomOptional = unitOfMeasureRepository.findByDescription(CUP);
 
         if(!cupsUomOptional.isPresent()){
-            throw new RuntimeException("Expected UOM Not Found");
+            throw new ObjectNotFoundException(CUP, UnitOfMeasure.class.getSimpleName());
         }
 
         //get optionals
@@ -104,16 +109,16 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
         UnitOfMeasure cupsUom = cupsUomOptional.get();
 
         //get Categories
-        Optional<Category> americanCategoryOptional = categoryRepository.findByDescription("American");
+        Optional<Category> americanCategoryOptional = categoryRepository.findByDescription(AMERICAN);
 
         if(!americanCategoryOptional.isPresent()){
-            throw new RuntimeException("Expected Category Not Found");
+            throw new ObjectNotFoundException(AMERICAN, Category.class.getSimpleName());
         }
 
-        Optional<Category> mexicanCategoryOptional = categoryRepository.findByDescription("Mexican");
+        Optional<Category> mexicanCategoryOptional = categoryRepository.findByDescription(MEXICAN);
 
         if(!mexicanCategoryOptional.isPresent()){
-            throw new RuntimeException("Expected Category Not Found");
+            throw new ObjectNotFoundException(MEXICAN, Category.class.getSimpleName());
         }
 
         Category americanCategory = americanCategoryOptional.get();
