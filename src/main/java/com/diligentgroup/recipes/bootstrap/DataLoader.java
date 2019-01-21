@@ -37,14 +37,14 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
     private final CategoryRepository categoryRepository;
     private final RecipeRepository recipeRepository;
     private final UnitOfMeasureRepository unitOfMeasureRepository;
-    private final String EACH = "Each";
-    private final String TABLESPOON = "Tablespoon";
-    private final String TEASPOON = "Teaspoon";
-    private final String DASH = "Dash";
-    private final String PINT = "Pint";
-    private final String CUP = "Cup";
-    private final String AMERICAN = "American";
-    private final String MEXICAN = "Mexican";
+    private final static String EACH = "Each";
+    private final static String TABLESPOON = "Tablespoon";
+    private final static String TEASPOON = "Teaspoon";
+    private final static String DASH = "Dash";
+    private final static String PINT = "Pint";
+    private final static String CUP = "Cup";
+    private final static String AMERICAN = "American";
+    private final static String MEXICAN = "Mexican";
 
     public DataLoader(CategoryRepository categoryRepository, RecipeRepository recipeRepository, UnitOfMeasureRepository unitOfMeasureRepository) {
         this.categoryRepository = categoryRepository;
