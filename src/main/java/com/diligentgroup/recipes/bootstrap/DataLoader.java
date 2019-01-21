@@ -1,16 +1,10 @@
 package com.diligentgroup.recipes.bootstrap;
 
-import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferByte;
-import java.awt.image.WritableRaster;
-import java.io.IOException;
 import java.math.BigDecimal;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import javax.imageio.ImageIO;
 import javax.transaction.Transactional;
 
 import org.hibernate.ObjectNotFoundException;
