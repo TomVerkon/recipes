@@ -37,14 +37,14 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
     private final CategoryRepository categoryRepository;
     private final RecipeRepository recipeRepository;
     private final UnitOfMeasureRepository unitOfMeasureRepository;
-    private final static String EACH = "Each";
-    private final static String TABLESPOON = "Tablespoon";
-    private final static String TEASPOON = "Teaspoon";
-    private final static String DASH = "Dash";
-    private final static String PINT = "Pint";
-    private final static String CUP = "Cup";
-    private final static String AMERICAN = "American";
-    private final static String MEXICAN = "Mexican";
+    private static final String EACH = "Each";
+    private static final String TABLESPOON = "Tablespoon";
+    private static final String TEASPOON = "Teaspoon";
+    private static final String DASH = "Dash";
+    private static final String PINT = "Pint";
+    private static final String CUP = "Cup";
+    private static final String AMERICAN = "American";
+    private static final String MEXICAN = "Mexican";
 
     public DataLoader(CategoryRepository categoryRepository, RecipeRepository recipeRepository, UnitOfMeasureRepository unitOfMeasureRepository) {
         this.categoryRepository = categoryRepository;
@@ -166,7 +166,6 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
 
         guacRecipe.getCategories().add(americanCategory);
         guacRecipe.getCategories().add(mexicanCategory);
-        //guacRecipe.setImage(fetchImageAsByteArray("https://www.simplyrecipes.com/wp-content/uploads/2014/05/guacamole-horiz-a-1600.jpg"));
 
         //add to return list
         recipes.add(guacRecipe);
@@ -225,33 +224,9 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
 
         tacosRecipe.getCategories().add(americanCategory);
         tacosRecipe.getCategories().add(mexicanCategory);
-        //tacosRecipe.setImage(fetchImageAsByteArray("https://www.simplyrecipes.com/wp-content/uploads/2017/05/2017-05-29-GrilledChickenTacos-3.jpg"));
 
         recipes.add(tacosRecipe);
         return recipes;
     }
     
-	private Byte[] fetchImageAsByteArray(String location) {
-
-		Byte[] imageByteArray = null;
-		try {
-			URL url = new URL(location);
-			BufferedImage bufferedImage = ImageIO.read(url.openStream());
-
-			// get DataBufferBytes from Raster
-			WritableRaster raster = bufferedImage.getRaster();
-			DataBufferByte data = (DataBufferByte) raster.getDataBuffer();
-			byte[] bytes = data.getData();
-			imageByteArray = new Byte[bytes.length];
-			int i = 0;
-			// Associating Byte array values with bytes. (byte[] to Byte[])
-			for (byte b : bytes)
-				imageByteArray[i++] = b; // Autoboxing.
-			return imageByteArray;
-
-		} catch (IOException e) {
-			throw new RuntimeException(e.getMessage());
-		}
-	}
-
 }

@@ -1,0 +1,26 @@
+	private Byte[] fetchImageAsByteArray(String location) {
+
+		Byte[] imageByteArray = null;
+		try {
+			URL url = new URL(location);
+			BufferedImage bufferedImage = ImageIO.read(url.openStream());
+
+			// get DataBufferBytes from Raster
+			WritableRaster raster = bufferedImage.getRaster();
+			DataBufferByte data = (DataBufferByte) raster.getDataBuffer();
+			byte[] bytes = data.getData();
+			imageByteArray = new Byte[bytes.length];
+			int i = 0;
+			// Associating Byte array values with bytes. (byte[] to Byte[])
+			for (byte b : bytes)
+				imageByteArray[i++] = b; // Autoboxing.
+			return imageByteArray;
+
+		} catch (IOException e) {
+			throw new RuntimeException(e.getMessage());
+		}
+	}
+
+        //guacRecipe.setImage(fetchImageAsByteArray("https://www.simplyrecipes.com/wp-content/uploads/2014/05/guacamole-horiz-a-1600.jpg"));
+        //tacosRecipe.setImage(fetchImageAsByteArray("https://www.simplyrecipes.com/wp-content/uploads/2017/05/2017-05-29-GrilledChickenTacos-3.jpg"));
+        
