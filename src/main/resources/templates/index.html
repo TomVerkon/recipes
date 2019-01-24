@@ -8,7 +8,7 @@
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
 	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-	crossorigin="anonymous">
+	crossorigin="anonymous" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}">
 </head>
 <body>
 	<div class="container-fluid" style="margin-top: 20px;">
@@ -26,20 +26,25 @@
 									<tr>
 										<th>ID</th>
 										<th>Description</th>
+										<th>View</th>
 									</tr>
 								</thead>
 								<tbody th:each="recipe : ${recipes}"  th:remove="all-but-first">
 									<tr>
-										<td th:text="${recipe.id}">XXX</td>
-										<td th:text="${recipe.description}">XXX</td>
+										<!--/*@thymesVar id="recipe" thype="com.diligentgroup.recipes.domain.Recipe"*/-->
+										<td th:text="${recipe.id}">1</td>
+										<td th:text="${recipe.description}">Meatballs</td>
+										<td><a href="#" th:href="@{'/recipe/show/' + ${recipe.id}}">View</a></td>
 									</tr>
 									<tr>
-										<td th:text="${recipe.id}">XXX</td>
-										<td th:text="${recipe.description}">XXX</td>
+										<td>2</td>
+										<td>Spaghetti</td>
+										<td><a href="#">View</a></td>
 									</tr>
 									<tr>
-										<td th:text="${recipe.id}">XXX</td>
-										<td th:text="${recipe.description}">XXX</td>
+										<td>3</td>
+										<td>Pizza</td>
+										<td><a href="#">View</a></td>
 									</tr>
 								</tbody>
 							</table>
@@ -47,18 +52,18 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=4214112
 	</div>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous"></script>
+		crossorigin="anonymous" th:href="@{/webjars/jquery/3.3.1-1/jquery.min.js}"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
 		integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-		crossorigin="anonymous"></script>
+		crossorigin="anonymous" th:href="@{/webjars/popper.js/1.14.6/umd/popper.min.js}"></script>
 	<script
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
 		integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-		crossorigin="anonymous"></script>
+		crossorigin="anonymous" th:href="@{/webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
 </body>
 </html>
