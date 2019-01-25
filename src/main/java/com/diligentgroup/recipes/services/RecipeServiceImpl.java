@@ -28,4 +28,10 @@ public class RecipeServiceImpl implements RecipeService {
 		return recipes;
 	}
 
+	@Override
+	public Recipe getRecipeById(Long id) {
+		log.info("Entering getRecipeById");
+		return recipeRepository.findById(id).orElse(null);
+	}
+
 }
