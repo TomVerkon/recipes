@@ -1,20 +1,30 @@
 package com.diligentgroup.recipes.domain;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.Table;
 
-import lombok.Data;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Setter
+@Getter
+@NoArgsConstructor
+@Table(name = "uoms")
+@EqualsAndHashCode(callSuper = true)
 @Entity
-public class UnitOfMeasure {
+public class UnitOfMeasure extends DescribedEntity {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8606785575499021363L;
 
-	private String description;
+	@Builder
+	public UnitOfMeasure(Long id, String description) {
+		super(id, description);
+	}
 
 }

@@ -10,7 +10,7 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @Setter
 public abstract class DescribedCommand extends IdCommand {
-	
+
 	private String description;
 
 }

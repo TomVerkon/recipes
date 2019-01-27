@@ -7,33 +7,50 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
-@Builder
+@Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "recipes")
+@EqualsAndHashCode(callSuper = true, exclude = { "categories", "ingredients",
+		"image" })
 @Entity
-public class Recipe {
+public class Recipe extends DescribedEntity {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7466110349847642814L;
 
-	private String description;
+	@Builder
+	public Recipe(Long id, String description, Integer prepTime,
+			Integer cookTime, Integer servings, String source, String url,
+			String directions, Difficulty difficulty) {
+		super(id, description);
+		this.prepTime = prepTime;
+		this.cookTime = cookTime;
+		this.servings = servings;
+		this.source = source;
+		this.url = url;
+		this.directions = directions;
+		this.difficulty = difficulty;
+	}
+
 	private Integer prepTime;
 	private Integer cookTime;
 	private Integer servings;

@@ -3,24 +3,34 @@ package com.diligentgroup.recipes.domain;
 import java.util.Set;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
-@EqualsAndHashCode(exclude = { "recipes" })
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "categories")
+@EqualsAndHashCode(callSuper = true, exclude = { "recipes" })
 @Entity
-public class Category {
+public class Category extends DescribedEntity {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6593873604164076107L;
 
-	private String description;
+	@Builder
+	public Category(Long id, String description) {
+		super(id, description);
+	}
 
 	@ManyToMany(mappedBy = "categories")
 	private Set<Recipe> recipes;

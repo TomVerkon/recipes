@@ -1,47 +1,43 @@
 package com.diligentgroup.recipes.domain;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
-import java.util.Optional;
-
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.junit4.SpringRunner;
 
-import com.diligentgroup.recipes.repositories.UnitOfMeasureRepository;
-
-@RunWith(SpringRunner.class)
-@DataJpaTest
+//Light weight unit test
 public class UnitOfMeasureTest {
-	
-	@Autowired
-	UnitOfMeasureRepository repository;
+
+	UnitOfMeasure object;
+	Long idValue = 4L;
+	String description = "xyzzy";
 
 	@Before
 	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
-	@Test
-	//@DirtiesContext
-	public void testFindByTsps() {
-		Optional<UnitOfMeasure> optionalUom = repository.findByDescription("Teaspoon");
-		assertEquals("Teaspoon", optionalUom.get().getDescription());
+		object = UnitOfMeasure.builder().id(idValue).description(description)
+				.build();
 	}
 
 	@Test
-	@DirtiesContext
-	public void testFindByCup() {
-		Optional<UnitOfMeasure> optionalUom = repository.findByDescription("Cup");
-		assertEquals("Cup", optionalUom.get().getDescription());
+	public void testId() {
+		assertEquals(idValue, object.getId());
+	}
+
+	@Test
+	public void testDescription() {
+		assertEquals(description, object.getDescription());
+	}
+
+	@Test
+	public void testIsNewAndEquals() {
+		UnitOfMeasure localObject = new UnitOfMeasure();
+		localObject.setDescription(description);
+		assert (localObject.isNew());
+		assert (!object.isNew());
+		assertNotEquals(localObject, object);
+		localObject.setId(idValue);
+		assertEquals(localObject, object);
 	}
 
 }

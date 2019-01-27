@@ -10,7 +10,7 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @Setter
 public abstract class IdCommand {
-	
+
 	private Long id;
 
 }

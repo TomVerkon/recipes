@@ -6,18 +6,16 @@ import static org.junit.Assert.assertNotEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-// Light weight unit test
-public class CategoryTest {
+//Light weight unit test
+public class NoteTest {
 
-	Category object;
-
+	Note object;
 	Long idValue = 4L;
-	String description = "xyzzy";
+	String recipeNotes = "xyzzy";
 
 	@Before
 	public void setUp() throws Exception {
-		object = Category.builder().id(idValue).description(description)
-				.build();
+		object = Note.builder().id(idValue).recipeNotes(recipeNotes).build();
 	}
 
 	@Test
@@ -27,13 +25,13 @@ public class CategoryTest {
 
 	@Test
 	public void testDescription() {
-		assertEquals(description, object.getDescription());
+		assertEquals(recipeNotes, object.getRecipeNotes());
 	}
 
 	@Test
 	public void testIsNewAndEquals() {
-		Category localObject = new Category();
-		localObject.setDescription(description);
+		Note localObject = new Note();
+		localObject.setRecipeNotes(recipeNotes);
 		assert (localObject.isNew());
 		assert (!object.isNew());
 		assertNotEquals(localObject, object);

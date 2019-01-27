@@ -2,23 +2,18 @@ package com.diligentgroup.recipes.command;
 
 import java.math.BigDecimal;
 
-import javax.persistence.FetchType;
-import javax.persistence.OneToOne;
-
-import com.diligentgroup.recipes.domain.UnitOfMeasure;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
 @NoArgsConstructor
-public class IngredientCommand {
+@SuperBuilder
+public class IngredientCommand extends DescribedCommand {
 
-	private Long id;
-	private String description;
 	private BigDecimal amount;
 	private UnitOfMeasureCommand uom;
-	
+
 }

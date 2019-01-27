@@ -1,6 +1,7 @@
 package com.diligentgroup.recipes.command;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -8,6 +9,7 @@ import org.junit.Test;
 public class DifficultyCommandTest {
 
 	DifficultyCommand command;
+	String description = "xyzzy";
 
 	@Before
 	public void setUp() throws Exception {
@@ -21,16 +23,16 @@ public class DifficultyCommandTest {
 
 	@Test
 	public void testDescription() {
-		command.setDescription("xyzzy");
-		assertEquals("xyzzy", command.getDescription());
+		command.setDescription(description);
+		assertEquals(description, command.getDescription());
 	}
 
 	@Test
 	public void testConstructor() {
 		DifficultyCommand difCom = new DifficultyCommand();
 		assertNull(difCom.getId());
-		difCom.setDescription("xyzzy");
-		assertEquals("xyzzy", difCom.getDescription());
+		difCom.setDescription(description);
+		assertEquals(description, difCom.getDescription());
 	}
 
 }

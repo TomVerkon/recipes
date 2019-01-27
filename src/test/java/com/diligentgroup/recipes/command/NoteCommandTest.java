@@ -6,14 +6,14 @@ import static org.junit.Assert.assertNull;
 import org.junit.Before;
 import org.junit.Test;
 
-public class CategoryCommandTest {
+public class NoteCommandTest {
 
-	CategoryCommand command;
-	String description = "xyzzy";
+	NoteCommand command;
+	String recipeNotes = "xyzzy";
 
 	@Before
 	public void setUp() throws Exception {
-		command = CategoryCommand.builder().id(1L).build();
+		command = NoteCommand.builder().id(1L).recipeNotes(recipeNotes).build();
 	}
 
 	@Test
@@ -23,16 +23,16 @@ public class CategoryCommandTest {
 
 	@Test
 	public void testDescription() {
-		command.setDescription(description);
-		assertEquals(description, command.getDescription());
+		command.setRecipeNotes(recipeNotes);
+		assertEquals(recipeNotes, command.getRecipeNotes());
 	}
 
 	@Test
 	public void testConstructor() {
-		CategoryCommand catCom = new CategoryCommand();
-		assertNull(catCom.getId());
-		catCom.setDescription(description);
-		assertEquals(description, catCom.getDescription());
+		NoteCommand localCom = new NoteCommand();
+		assertNull(localCom.getId());
+		localCom.setRecipeNotes(recipeNotes);
+		assertEquals(recipeNotes, localCom.getRecipeNotes());
 	}
 
 }

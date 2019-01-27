@@ -6,14 +6,14 @@ import static org.junit.Assert.assertNull;
 import org.junit.Before;
 import org.junit.Test;
 
-public class CategoryCommandTest {
+public class UnitOfMeasureCommandTest {
 
-	CategoryCommand command;
+	UnitOfMeasureCommand command;
 	String description = "xyzzy";
 
 	@Before
 	public void setUp() throws Exception {
-		command = CategoryCommand.builder().id(1L).build();
+		command = UnitOfMeasureCommand.builder().id(1L).build();
 	}
 
 	@Test
@@ -29,10 +29,10 @@ public class CategoryCommandTest {
 
 	@Test
 	public void testConstructor() {
-		CategoryCommand catCom = new CategoryCommand();
-		assertNull(catCom.getId());
-		catCom.setDescription(description);
-		assertEquals(description, catCom.getDescription());
+		UnitOfMeasureCommand localCom = new UnitOfMeasureCommand();
+		assertNull(localCom.getId());
+		localCom.setDescription(description);
+		assertEquals(description, localCom.getDescription());
 	}
 
 }

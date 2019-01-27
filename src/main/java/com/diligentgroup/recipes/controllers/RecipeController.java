@@ -9,17 +9,18 @@ import com.diligentgroup.recipes.services.RecipeService;
 
 @Controller
 public class RecipeController {
-	
+
 	private final RecipeService recipeService;
 
 	public RecipeController(RecipeService recipeService) {
 		super();
 		this.recipeService = recipeService;
 	}
-	
+
 	@RequestMapping("/recipe/show/{id}")
 	public String showRecipeById(@PathVariable String id, Model model) {
-		model.addAttribute("recipe", recipeService.getRecipeById(Long.decode(id)));
+		model.addAttribute("recipe",
+				recipeService.getRecipeById(Long.decode(id)));
 		return "/recipe/show";
 	}
 

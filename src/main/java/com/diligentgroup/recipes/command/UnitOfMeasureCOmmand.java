@@ -3,12 +3,12 @@ package com.diligentgroup.recipes.command;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
 @NoArgsConstructor
-public class UnitOfMeasureCommand {
+@SuperBuilder
+public class UnitOfMeasureCommand extends DescribedCommand {
 
-	private Long id;
-	private String description;
 }
