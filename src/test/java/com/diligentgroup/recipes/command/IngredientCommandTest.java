@@ -16,7 +16,7 @@ public class IngredientCommandTest {
 	@Before
 	public void setUp() throws Exception {
 		command = IngredientCommand.builder().id(1L).description(description)
-				.amount(new BigDecimal(2.0)).uom(UomCommand.builder()
+				.amount(new BigDecimal(2.0)).uom(UnitOfMeasureCommand.builder()
 						.id(1L).description(description).build())
 				.build();
 	}

@@ -14,6 +14,6 @@ import lombok.experimental.SuperBuilder;
 public class IngredientCommand extends DescribedCommand {
 
 	private BigDecimal amount;
-	private UomCommand uom;
+	private UnitOfMeasureCommand uom;
 
 }

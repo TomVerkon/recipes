@@ -9,6 +9,6 @@ import lombok.experimental.SuperBuilder;
 @Setter
 @NoArgsConstructor
 @SuperBuilder
-public class UomCommand extends DescribedCommand {
+public class UnitOfMeasureCommand extends DescribedCommand {
 
 }
