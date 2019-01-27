@@ -1,7 +1,5 @@
 package com.diligentgroup.recipes.command;
 
-import java.math.BigDecimal;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,9 +9,6 @@ import lombok.experimental.SuperBuilder;
 @Setter
 @NoArgsConstructor
 @SuperBuilder
-public class IngredientCommand extends DescribedCommand {
-
-	private BigDecimal amount;
-	private UomCommand uom;
+public class UomCommand extends DescribedCommand {
 
 }

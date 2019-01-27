@@ -8,12 +8,12 @@ import org.junit.Test;
 
 public class UnitOfMeasureCommandTest {
 
-	UnitOfMeasureCommand command;
+	UomCommand command;
 	String description = "xyzzy";
 
 	@Before
 	public void setUp() throws Exception {
-		command = UnitOfMeasureCommand.builder().id(1L).build();
+		command = UomCommand.builder().id(1L).build();
 	}
 
 	@Test
@@ -29,7 +29,7 @@ public class UnitOfMeasureCommandTest {
 
 	@Test
 	public void testConstructor() {
-		UnitOfMeasureCommand localCom = new UnitOfMeasureCommand();
+		UomCommand localCom = new UomCommand();
 		assertNull(localCom.getId());
 		localCom.setDescription(description);
 		assertEquals(description, localCom.getDescription());
