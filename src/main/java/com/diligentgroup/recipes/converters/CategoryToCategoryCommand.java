@@ -10,16 +10,16 @@ import com.diligentgroup.recipes.domain.Category;
 import lombok.Synchronized;
 
 @Component
-public class CategoryCommandToCategory implements Converter<CategoryCommand, Category> {
+public class CategoryToCategoryCommand implements Converter<Category, CategoryCommand> {
 
 	@Synchronized
 	@Nullable
 	@Override
-	public Category convert(CategoryCommand source) {
+	public CategoryCommand convert(Category source) {
 		if (source == null) {
 			return null;
 		}
-		return Category.builder().id(source.getId()).description(source.getDescription()).build();
+		return CategoryCommand.builder().description(source.getDescription()).id(source.getId()).build();
 	}
 
 }

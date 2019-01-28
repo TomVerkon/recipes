@@ -10,8 +10,7 @@ import com.diligentgroup.recipes.domain.UnitOfMeasure;
 import lombok.Synchronized;
 
 @Component
-public class UomCommandToUom
-		implements Converter<UnitOfMeasureCommand, UnitOfMeasure> {
+public class UomCommandToUom implements Converter<UnitOfMeasureCommand, UnitOfMeasure> {
 
 	@Synchronized
 	@Nullable
@@ -20,8 +19,7 @@ public class UomCommandToUom
 		if (source == null) {
 			return null;
 		}
-		return UnitOfMeasure.builder().id(source.getId())
-				.description(source.getDescription()).build();
+		return UnitOfMeasure.builder().id(source.getId()).description(source.getDescription()).build();
 	}
 
 }

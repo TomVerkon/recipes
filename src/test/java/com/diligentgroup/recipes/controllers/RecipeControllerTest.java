@@ -33,10 +33,8 @@ public class RecipeControllerTest {
 	@Test
 	public void testShowRecipeById() throws Exception {
 		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
-		when(recipeService.getRecipeById(anyLong()))
-				.thenReturn(Recipe.builder().id(1L).build());
-		mockMvc.perform(get("/recipe/show/1")).andExpect(status().isOk())
-				.andExpect(view().name("/recipe/show"));
+		when(recipeService.getRecipeById(anyLong())).thenReturn(Recipe.builder().id(1L).build());
+		mockMvc.perform(get("/recipe/show/1")).andExpect(status().isOk()).andExpect(view().name("/recipe/show"));
 	}
 
 }

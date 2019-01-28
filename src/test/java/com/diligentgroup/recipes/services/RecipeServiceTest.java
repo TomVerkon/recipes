@@ -51,8 +51,7 @@ public class RecipeServiceTest {
 
 	@Test
 	public void getRecipeById() {
-		Optional<Recipe> optionalRecipe = Optional
-				.of(Recipe.builder().id(1L).build());
+		Optional<Recipe> optionalRecipe = Optional.of(Recipe.builder().id(1L).build());
 
 		when(recipeRepository.findById(anyLong())).thenReturn(optionalRecipe);
 

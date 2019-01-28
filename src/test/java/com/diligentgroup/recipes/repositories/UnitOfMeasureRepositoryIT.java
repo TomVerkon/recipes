@@ -35,16 +35,14 @@ public class UnitOfMeasureRepositoryIT {
 	@Test
 	@DirtiesContext
 	public void testFindByTsps() {
-		Optional<UnitOfMeasure> optionalUom = repository
-				.findByDescription("Teaspoon");
+		Optional<UnitOfMeasure> optionalUom = repository.findByDescription("Teaspoon");
 		assertEquals("Teaspoon", optionalUom.get().getDescription());
 	}
 
 	@Test
 	@DirtiesContext
 	public void testFindByCup() {
-		Optional<UnitOfMeasure> optionalUom = repository
-				.findByDescription("Cup");
+		Optional<UnitOfMeasure> optionalUom = repository.findByDescription("Cup");
 		assertEquals("Cup", optionalUom.get().getDescription());
 	}
 
@@ -57,8 +55,7 @@ public class UnitOfMeasureRepositoryIT {
 		assertNotNull(uom.getId());
 		assertEquals(quart, uom.getDescription());
 
-		UnitOfMeasure fetchedUom = repository.findByDescription(quart)
-				.orElse(null);
+		UnitOfMeasure fetchedUom = repository.findByDescription(quart).orElse(null);
 		assertNotNull(fetchedUom);
 		assertEquals(uom, fetchedUom);
 	}

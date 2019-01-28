@@ -3,19 +3,19 @@ package com.diligentgroup.recipes.domain;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 @Setter
 @Getter
-@AllArgsConstructor
+//@AllArgsConstructor
 @NoArgsConstructor
-@MappedSuperclass
+@SuperBuilder
 @EqualsAndHashCode(callSuper = true)
+@MappedSuperclass
 public abstract class DescribedEntity extends BaseEntity {
 
 	/**
@@ -25,7 +25,7 @@ public abstract class DescribedEntity extends BaseEntity {
 
 	@Column(name = "description")
 	private String description;
-	
+
 	public DescribedEntity(Long id, String description) {
 		super(id);
 		this.description = description;

@@ -4,22 +4,22 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
-import com.diligentgroup.recipes.command.CategoryCommand;
-import com.diligentgroup.recipes.domain.Category;
+import com.diligentgroup.recipes.command.NoteCommand;
+import com.diligentgroup.recipes.domain.Note;
 
 import lombok.Synchronized;
 
 @Component
-public class CategoryCommandToCategory implements Converter<CategoryCommand, Category> {
+public class NoteToNoteCommand implements Converter<Note, NoteCommand> {
 
 	@Synchronized
 	@Nullable
 	@Override
-	public Category convert(CategoryCommand source) {
+	public NoteCommand convert(Note source) {
 		if (source == null) {
 			return null;
 		}
-		return Category.builder().id(source.getId()).description(source.getDescription()).build();
+		return NoteCommand.builder().id(source.getId()).recipeNotes(source.getRecipeNotes()).build();
 	}
 
 }

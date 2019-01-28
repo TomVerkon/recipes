@@ -49,8 +49,7 @@ public class RootControllerTest {
 	public void testMockMVC() throws Exception {
 		MockMvc mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
 
-		mockMvc.perform(get("/")).andExpect(status().isOk())
-				.andExpect(view().name("index"));
+		mockMvc.perform(get("/")).andExpect(status().isOk()).andExpect(view().name("index"));
 	}
 
 	@Test
@@ -63,13 +62,11 @@ public class RootControllerTest {
 		when(recipeService.getAllRecipes()).thenReturn(recipes);
 
 		@SuppressWarnings("unchecked")
-		ArgumentCaptor<Set<Recipe>> argumentCaptor = ArgumentCaptor
-				.forClass(Set.class);
+		ArgumentCaptor<Set<Recipe>> argumentCaptor = ArgumentCaptor.forClass(Set.class);
 		String returnStr = controller.getIndexPage(model);
 		assertEquals("index", returnStr);
 		verify(recipeService, times(1)).getAllRecipes();
-		verify(model, times(1)).addAttribute(eq("recipes"),
-				argumentCaptor.capture());
+		verify(model, times(1)).addAttribute(eq("recipes"), argumentCaptor.capture());
 		assertEquals(2, argumentCaptor.getValue().size());
 
 	}

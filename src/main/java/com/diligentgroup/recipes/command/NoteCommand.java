@@ -11,6 +11,11 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class NoteCommand extends IdCommand {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4715980346154920445L;
+	
 	private String recipeNotes;
 
 }

@@ -6,8 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.diligentgroup.recipes.domain.UnitOfMeasure;
 
-public interface UnitOfMeasureRepository
-		extends CrudRepository<UnitOfMeasure, Long> {
+public interface UnitOfMeasureRepository extends CrudRepository<UnitOfMeasure, Long> {
 
 	Optional<UnitOfMeasure> findByDescription(String description);
 

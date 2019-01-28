@@ -12,13 +12,15 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@MappedSuperclass
 @EqualsAndHashCode
+@SuperBuilder
+@MappedSuperclass
 public abstract class BaseEntity implements Serializable {
 
 	/**

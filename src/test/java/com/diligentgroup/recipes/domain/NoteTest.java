@@ -1,7 +1,7 @@
 package com.diligentgroup.recipes.domain;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -10,8 +10,8 @@ import org.junit.Test;
 public class NoteTest {
 
 	Note object;
-	Long idValue = 4L;
-	String recipeNotes = "xyzzy";
+	Long idValue = Long.valueOf(Long.MAX_VALUE);
+	String recipeNotes = "recipeNotes";
 
 	@Before
 	public void setUp() throws Exception {
@@ -19,13 +19,21 @@ public class NoteTest {
 	}
 
 	@Test
-	public void testId() {
+	public void testBuilderAndGetters() {
+		// builder was used in
 		assertEquals(idValue, object.getId());
+		assertEquals(recipeNotes, object.getRecipeNotes());
+		assertNull(object.getRecipe());
 	}
 
 	@Test
-	public void testDescription() {
-		assertEquals(recipeNotes, object.getRecipeNotes());
+	public void testConstructorsAndSetters() {
+		Note localObject = new Note();
+		assertNull(localObject.getId());
+		localObject = new Note(idValue, recipeNotes);
+		assertEquals(idValue, localObject.getId());
+		assertEquals(recipeNotes, localObject.getRecipeNotes());
+		assertNull(localObject.getRecipe());
 	}
 
 	@Test
@@ -34,9 +42,13 @@ public class NoteTest {
 		localObject.setRecipeNotes(recipeNotes);
 		assert (localObject.isNew());
 		assert (!object.isNew());
-		assertNotEquals(localObject, object);
+		assert (!localObject.equals(object));
+
 		localObject.setId(idValue);
-		assertEquals(localObject, object);
+		assert (localObject.equals(object));
+		localObject.setRecipe(Recipe.builder().id(idValue).build());
+		// recipe not part of equals right now
+		assert (localObject.equals(object));
 	}
 
 }

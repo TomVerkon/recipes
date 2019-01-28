@@ -10,5 +10,10 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @SuperBuilder
 public class CategoryCommand extends DescribedCommand {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4741324958534700430L;
 
 }

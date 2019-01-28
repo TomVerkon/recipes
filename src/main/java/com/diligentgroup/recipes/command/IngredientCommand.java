@@ -13,6 +13,11 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class IngredientCommand extends DescribedCommand {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1343369070688040643L;
+	
 	private BigDecimal amount;
 	private UnitOfMeasureCommand uom;
 

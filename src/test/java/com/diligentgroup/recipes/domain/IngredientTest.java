@@ -2,6 +2,7 @@ package com.diligentgroup.recipes.domain;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNull;
 
 import java.math.BigDecimal;
 
@@ -12,23 +13,37 @@ public class IngredientTest {
 
 	Ingredient object;
 	Long idValue = Long.valueOf(Long.MAX_VALUE);
-
-	String description = "xyzzy";
+	String description = "description";
+	UnitOfMeasure uom;
+	BigDecimal amount = BigDecimal.TEN;
 
 	@Before
 	public void setUp() throws Exception {
-		object = Ingredient.builder().id(idValue).description(description)
-				.build();
+		uom = UnitOfMeasure.builder().id(idValue).description(description).build();
+		object = Ingredient.builder().id(idValue).description(description).uom(uom).amount(amount).build();
 	}
 
 	@Test
-	public void testId() throws Exception {
+	public void testBuilderAndGetters() {
+		// builder was used in setup
 		assertEquals(idValue, object.getId());
+		assertEquals(description, object.getDescription());
+		assertEquals(uom, object.getUom());
 	}
 
 	@Test
-	public void testDescription() {
-		assertEquals(description, object.getDescription());
+	public void testConstructorsAndSetters() {
+		Ingredient localObject = new Ingredient();
+		assertNull(localObject.getId());
+		localObject.setAmount(amount);
+		localObject.setDescription(description);
+		localObject.setId(idValue);
+		localObject.setUom(uom);
+		Ingredient localObject2 = new Ingredient(idValue, description, amount, uom);
+		assert(localObject.equals(localObject2));
+		assertNull(localObject.getRecipe());
+		localObject2.setRecipe(Recipe.builder().id(idValue).build());
+		assertEquals(localObject, localObject2);
 	}
 
 	@Test
@@ -37,32 +52,10 @@ public class IngredientTest {
 		localObject.setDescription(description);
 		assert (localObject.isNew());
 		assert (!object.isNew());
-		assertNotEquals(localObject, object);
 		localObject.setId(idValue);
-		assertEquals(localObject, object);
+		localObject.setAmount(amount);
+		localObject.setUom(uom);
+		assert (localObject.equals(object));
 	}
 
-	@Test
-	public void testUomAndAmount() {
-
-		object.setUom(UnitOfMeasure.builder().id(idValue)
-				.description(description).build());
-
-		Ingredient localObject = new Ingredient();
-		localObject.setId(idValue);
-		localObject.setDescription(description);
-		localObject.setUom(UnitOfMeasure.builder().id(idValue).build());
-		assertNotEquals(localObject, object);
-
-		localObject.getUom().setDescription(description);
-		assertEquals(localObject, object);
-
-		object.setAmount(BigDecimal.ONE);
-		assertNotEquals(localObject, object);
-
-		localObject.setAmount(BigDecimal.ONE);
-		;
-		assertEquals(localObject, object);
-
-	}
 }

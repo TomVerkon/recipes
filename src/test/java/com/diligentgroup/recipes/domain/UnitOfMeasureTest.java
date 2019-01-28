@@ -1,7 +1,7 @@
 package com.diligentgroup.recipes.domain;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -10,23 +10,28 @@ import org.junit.Test;
 public class UnitOfMeasureTest {
 
 	UnitOfMeasure object;
-	Long idValue = 4L;
-	String description = "xyzzy";
+	Long idValue = Long.valueOf(Long.MAX_VALUE);
+	String description = "description";
 
 	@Before
 	public void setUp() throws Exception {
-		object = UnitOfMeasure.builder().id(idValue).description(description)
-				.build();
+		object = UnitOfMeasure.builder().id(idValue).description(description).build();
 	}
 
 	@Test
-	public void testId() {
+	public void testBuilderAndGetters() {
+		// builder was used in
 		assertEquals(idValue, object.getId());
+		assertEquals(description, object.getDescription());
 	}
 
 	@Test
-	public void testDescription() {
-		assertEquals(description, object.getDescription());
+	public void testConstructorsAndSetters() {
+		UnitOfMeasure localObject = new UnitOfMeasure();
+		assertNull(localObject.getId());
+		localObject = new UnitOfMeasure(idValue, description);
+		assertEquals(idValue, localObject.getId());
+		assertEquals(description, localObject.getDescription());
 	}
 
 	@Test
@@ -35,9 +40,9 @@ public class UnitOfMeasureTest {
 		localObject.setDescription(description);
 		assert (localObject.isNew());
 		assert (!object.isNew());
-		assertNotEquals(localObject, object);
+		assert (!localObject.equals(object));
 		localObject.setId(idValue);
-		assertEquals(localObject, object);
+		assert (localObject.equals(object));
 	}
 
 }
