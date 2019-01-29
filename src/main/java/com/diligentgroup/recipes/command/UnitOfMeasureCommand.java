@@ -16,5 +16,9 @@ public class UnitOfMeasureCommand extends DescribedCommand {
 	 */
 	private static final long serialVersionUID = 8060474858624093946L;
 	
+	public UnitOfMeasureCommand(Long id, String description) {
+		super(id, description);
+	}
+	
 
 }

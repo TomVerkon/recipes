@@ -12,9 +12,9 @@ import lombok.Synchronized;
 @Component
 public class IngredientCommandToIngredient implements Converter<IngredientCommand, Ingredient> {
 
-	private UomCommandToUom uomConverter;
+	private UnitOfMeasureCommandToUnitOfMeasure uomConverter;
 
-	public IngredientCommandToIngredient(UomCommandToUom uomConverter) {
+	public IngredientCommandToIngredient(UnitOfMeasureCommandToUnitOfMeasure uomConverter) {
 		super();
 		this.uomConverter = uomConverter;
 	}

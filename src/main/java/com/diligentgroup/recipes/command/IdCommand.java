@@ -2,6 +2,7 @@ package com.diligentgroup.recipes.command;
 
 import java.io.Serializable;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,6 +11,7 @@ import lombok.experimental.SuperBuilder;
 @Setter
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
 @SuperBuilder
 public abstract class IdCommand implements Serializable {
 
