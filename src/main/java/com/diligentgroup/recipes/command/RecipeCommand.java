@@ -21,7 +21,7 @@ public class RecipeCommand extends DescribedCommand {
 	 * 
 	 */
 	private static final long serialVersionUID = 8532296600920179235L;
-	
+
 	private Integer prepTime;
 	private Integer cookTime;
 	private Integer servings;
@@ -29,12 +29,12 @@ public class RecipeCommand extends DescribedCommand {
 	private String url;
 	private String directions;
 	private Difficulty difficulty;
-	
+
 	@Builder.Default
 	private Set<IngredientCommand> ingredients = new HashSet<>();
-	
+
 	private NoteCommand notes;
-	
+
 	@Builder.Default
 	private Set<CategoryCommand> categories = new HashSet<>();
 

@@ -28,14 +28,14 @@ public class RecipeTest {
 		Note note = Note.builder().id(idValue).recipeNotes(recipeNote).build();
 		Category category = Category.builder().id(idValue).description(description).build();
 		UnitOfMeasure each = new UnitOfMeasure(idValue, "Each");
-		Ingredient ingredient = Ingredient.builder().id(idValue).amount(amount).uom(each).description(description).build();
-		object = Recipe.builder().id(idValue).description(description).cookTime(cookTime)
-				.difficulty(Difficulty.HARD).directions(directions).prepTime(prepTime).servings(servings)
-				.source(source).url(url).build();
+		Ingredient ingredient = Ingredient.builder().id(idValue).amount(amount).uom(each).description(description)
+				.build();
+		object = Recipe.builder().id(idValue).description(description).cookTime(cookTime).difficulty(Difficulty.HARD)
+				.directions(directions).prepTime(prepTime).servings(servings).source(source).url(url).build();
 		object.setNotes(note);
 		object.addCategory(category);
 		object.addIngredient(ingredient);
-		
+
 	}
 
 	@Test
@@ -52,7 +52,7 @@ public class RecipeTest {
 		assertEquals(Difficulty.HARD, object.getDifficulty());
 		assertEquals(1, object.getCategories().size());
 		assertEquals(1, object.getIngredients().size());
-		
+
 	}
 
 	@Test
@@ -68,17 +68,19 @@ public class RecipeTest {
 		localObject.setUrl(url);
 		localObject.setDirections(directions);
 		localObject.setDifficulty(Difficulty.HARD);
-		Recipe localObject2 = new Recipe(idValue, description, prepTime, cookTime, servings, source, url, directions, Difficulty.HARD);
-		assert(localObject.equals(localObject2));
+		Recipe localObject2 = new Recipe(idValue, description, prepTime, cookTime, servings, source, url, directions,
+				Difficulty.HARD);
+		assert (localObject.equals(localObject2));
 		assertNull(localObject.getNotes());
-		assert(localObject.getCategories().isEmpty());
-		assert(localObject2.getCategories().isEmpty());
-		assert(localObject.getIngredients().isEmpty());
+		assert (localObject.getCategories().isEmpty());
+		assert (localObject2.getCategories().isEmpty());
+		assert (localObject.getIngredients().isEmpty());
 	}
 
 	@Test
 	public void testIsNewAndEquals() {
-		Recipe localObject = new Recipe(null, description, prepTime, cookTime, servings, source, url, directions, Difficulty.HARD);
+		Recipe localObject = new Recipe(null, description, prepTime, cookTime, servings, source, url, directions,
+				Difficulty.HARD);
 		assert (localObject.isNew());
 		assert (!object.isNew());
 		assertNotEquals(localObject, object);

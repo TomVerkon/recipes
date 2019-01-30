@@ -1,7 +1,6 @@
 package com.diligentgroup.recipes.domain;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNull;
 
 import java.math.BigDecimal;
@@ -40,7 +39,7 @@ public class IngredientTest {
 		localObject.setId(idValue);
 		localObject.setUom(uom);
 		Ingredient localObject2 = new Ingredient(idValue, description, amount, uom);
-		assert(localObject.equals(localObject2));
+		assert (localObject.equals(localObject2));
 		assertNull(localObject.getRecipe());
 		localObject2.setRecipe(Recipe.builder().id(idValue).build());
 		assertEquals(localObject, localObject2);

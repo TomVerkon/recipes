@@ -40,7 +40,7 @@ public class Category extends DescribedEntity {
 	@Builder.Default
 	@ManyToMany(mappedBy = "categories")
 	private Set<Recipe> recipes = new HashSet<>();
-	
+
 	public Set<Recipe> getRecipes() {
 		if (recipes == null) {
 			recipes = new HashSet<>();

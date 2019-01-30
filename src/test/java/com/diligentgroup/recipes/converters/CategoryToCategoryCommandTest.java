@@ -12,7 +12,7 @@ import com.diligentgroup.recipes.domain.Category;
 public class CategoryToCategoryCommandTest {
 
 	Category source;
-	
+
 	CategoryToCategoryCommand converter;
 
 	@Before
@@ -20,7 +20,6 @@ public class CategoryToCategoryCommandTest {
 		converter = new CategoryToCategoryCommand();
 		source = new Category(10L, "description");
 	}
-
 
 	@Test
 	public void testConvertNull() {
@@ -30,9 +29,9 @@ public class CategoryToCategoryCommandTest {
 	@Test
 	public void testConvert() {
 		CategoryCommand target = converter.convert(source);
-		assert(target.getId().equals(source.getId()));
+		assert (target.getId().equals(source.getId()));
 		assertEquals(target.getId(), source.getId());
-		assert(target.getDescription().equals(source.getDescription()));
+		assert (target.getDescription().equals(source.getDescription()));
 		assertEquals(target.getDescription(), source.getDescription());
 	}
 

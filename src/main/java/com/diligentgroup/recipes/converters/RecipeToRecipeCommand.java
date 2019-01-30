@@ -14,6 +14,18 @@ import lombok.Synchronized;
 
 public class RecipeToRecipeCommand implements Converter<Recipe, RecipeCommand> {
 
+	private IngredientToIngredientCommand ingredientConverter;
+	private CategoryToCategoryCommand categoryConverter;
+	private NoteToNoteCommand noteConverter;
+
+	public RecipeToRecipeCommand(IngredientToIngredientCommand ingredientConverter,
+			CategoryToCategoryCommand categoryConverter, NoteToNoteCommand noteConverter) {
+		super();
+		this.ingredientConverter = ingredientConverter;
+		this.categoryConverter = categoryConverter;
+		this.noteConverter = noteConverter;
+	}
+
 	@Synchronized
 	@Nullable
 	@Override
@@ -25,6 +37,17 @@ public class RecipeToRecipeCommand implements Converter<Recipe, RecipeCommand> {
 				.description(source.getDescription()).difficulty(source.getDifficulty())
 				.directions(source.getDirections()).id(source.getId()).prepTime(source.getPrepTime())
 				.servings(source.getServings()).source(source.getSource()).url(source.getUrl()).build();
+
+		recipeCommand.setNotes(noteConverter.convert(source.getNotes()));
+
+		source.getCategories().forEach(category -> {
+			recipeCommand.addCategory(categoryConverter.convert(category));
+		});
+
+		source.getIngredients().forEach(ingredient -> {
+			recipeCommand.addIngredient(ingredientConverter.convert(ingredient));
+		});
+
 		recipeCommand.setNotes(NoteCommand.builder().id(source.getNotes().getId())
 				.recipeNotes(source.getNotes().getRecipeNotes()).build());
 		source.getCategories().forEach(category -> {

@@ -1,6 +1,5 @@
 package com.diligentgroup.recipes.command;
 
-import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,9 +17,9 @@ public abstract class DescribedCommand extends IdCommand {
 	 * 
 	 */
 	private static final long serialVersionUID = -1441436143900720378L;
-	
+
 	private String description;
-	
+
 	public DescribedCommand(Long id, String description) {
 		super(id);
 		this.description = description;

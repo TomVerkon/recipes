@@ -10,9 +10,9 @@ import com.diligentgroup.recipes.command.CategoryCommand;
 import com.diligentgroup.recipes.domain.Category;
 
 public class CategoryCommandToCategoryTest {
-	
+
 	CategoryCommand source;
-	
+
 	CategoryCommandToCategory converter;
 
 	@Before
@@ -29,9 +29,9 @@ public class CategoryCommandToCategoryTest {
 	@Test
 	public void testConvert() {
 		Category target = converter.convert(source);
-		assert(target.getId().equals(source.getId()));
+		assert (target.getId().equals(source.getId()));
 		assertEquals(target.getId(), source.getId());
-		assert(target.getDescription().equals(source.getDescription()));
+		assert (target.getDescription().equals(source.getDescription()));
 		assertEquals(target.getDescription(), source.getDescription());
 	}
 

@@ -10,7 +10,7 @@ import com.diligentgroup.recipes.domain.UnitOfMeasure;
 import lombok.Synchronized;
 
 @Component
-public class UnitOfMeasureToUnitOfMeasureCommand implements Converter<UnitOfMeasure, UnitOfMeasureCommand>{
+public class UnitOfMeasureToUnitOfMeasureCommand implements Converter<UnitOfMeasure, UnitOfMeasureCommand> {
 
 	@Synchronized
 	@Nullable

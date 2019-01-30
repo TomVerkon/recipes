@@ -94,14 +94,14 @@ public class Recipe extends DescribedEntity {
 		notes.setRecipe(this);
 		this.notes = notes;
 	}
-	
+
 	public Set<Category> getCategories() {
 		if (this.categories == null) {
 			this.categories = new HashSet<>();
 		}
 		return this.categories;
 	}
-	
+
 	public void addCategory(Category category) {
 		category.getRecipes().add(this);
 		getCategories().add(category);
