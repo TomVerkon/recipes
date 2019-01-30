@@ -9,16 +9,16 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.diligentgroup.recipes.command.IngredientCommand;
-import com.diligentgroup.recipes.command.UnitOfMeasureCommand;
 import com.diligentgroup.recipes.domain.Ingredient;
+import com.diligentgroup.recipes.domain.UnitOfMeasure;
 
-public class IngredientCommandToIngredientTest {
+public class IngredientToIngredientCommandTest {
+
+	Ingredient source;
+	UnitOfMeasureToUnitOfMeasureCommand uomConverter;
+	UnitOfMeasure uom;
 	
-	IngredientCommand source;
-	UnitOfMeasureCommandToUnitOfMeasure uomConverter;
-	UnitOfMeasureCommand uomCommand;
-	
-	IngredientCommandToIngredient converter;
+	IngredientToIngredientCommand converter;
 	
 	BigDecimal amount = BigDecimal.TEN;
 	String description = "description";
@@ -26,10 +26,10 @@ public class IngredientCommandToIngredientTest {
 
 	@Before
 	public void setUp() throws Exception {
-		uomConverter = new UnitOfMeasureCommandToUnitOfMeasure();
-		uomCommand = UnitOfMeasureCommand.builder().id(id).description(description).build();
-		source = IngredientCommand.builder().amount(amount).description(description).id(id).uom(uomCommand).build();
-		converter = new IngredientCommandToIngredient(uomConverter);
+		uomConverter = new UnitOfMeasureToUnitOfMeasureCommand();
+		uom = UnitOfMeasure.builder().id(id).description(description).build();
+		source = Ingredient.builder().amount(amount).description(description).id(id).uom(uom).build();
+		converter = new IngredientToIngredientCommand(uomConverter);
 	}
 
 	@Test
@@ -39,7 +39,7 @@ public class IngredientCommandToIngredientTest {
 
 	@Test
 	public void testConvert() {
-		Ingredient target = converter.convert(source);
+		IngredientCommand target = converter.convert(source);
 		assert(target.getId().equals(source.getId()));
 		assertEquals(target.getId(), source.getId());
 		
