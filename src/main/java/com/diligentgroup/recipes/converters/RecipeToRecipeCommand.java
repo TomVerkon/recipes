@@ -2,6 +2,7 @@ package com.diligentgroup.recipes.converters;
 
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.Nullable;
+import org.springframework.stereotype.Component;
 
 import com.diligentgroup.recipes.command.CategoryCommand;
 import com.diligentgroup.recipes.command.IngredientCommand;
@@ -12,6 +13,7 @@ import com.diligentgroup.recipes.domain.Recipe;
 
 import lombok.Synchronized;
 
+@Component
 public class RecipeToRecipeCommand implements Converter<Recipe, RecipeCommand> {
 
 	private IngredientToIngredientCommand ingredientConverter;
