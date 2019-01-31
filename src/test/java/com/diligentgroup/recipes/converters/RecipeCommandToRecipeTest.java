@@ -54,32 +54,32 @@ public class RecipeCommandToRecipeTest {
 	public void testConvert() {
 		Recipe target = converter.convert(source);
 
-		assert (target.getId().equals(source.getId()));
-		assertEquals(target.getId(), source.getId());
+		assert (source.getId().equals(target.getId()));
+		assertEquals(source.getId(), target.getId());
 
-		assert (target.getDescription().equals(source.getDescription()));
-		assertEquals(target.getDescription(), source.getDescription());
+		assert (source.getDescription().equals(target.getDescription()));
+		assertEquals(source.getDescription(), target.getDescription());
 
-		assert (target.getCookTime().equals(source.getCookTime()));
-		assertEquals(target.getCookTime(), source.getCookTime());
+		assert (source.getCookTime().equals(target.getCookTime()));
+		assertEquals(source.getCookTime(), target.getCookTime());
 
-		assert (target.getDifficulty().equals(source.getDifficulty()));
-		assertEquals(target.getDifficulty(), source.getDifficulty());
+		assert (source.getDifficulty().equals(target.getDifficulty()));
+		assertEquals(source.getDifficulty(), target.getDifficulty());
 
-		assert (target.getDirections().equals(source.getDirections()));
-		assertEquals(target.getDirections(), source.getDirections());
+		assert (source.getDirections().equals(target.getDirections()));
+		assertEquals(source.getDirections(), target.getDirections());
 
-		assert (target.getPrepTime().equals(source.getPrepTime()));
-		assertEquals(target.getPrepTime(), source.getPrepTime());
+		assert (source.getPrepTime().equals(target.getPrepTime()));
+		assertEquals(source.getPrepTime(), target.getPrepTime());
 
-		assert (target.getServings().equals(source.getServings()));
-		assertEquals(target.getServings(), source.getServings());
+		assert (source.getServings().equals(target.getServings()));
+		assertEquals(source.getServings(), target.getServings());
 
-		assert (target.getSource().equals(source.getSource()));
-		assertEquals(target.getSource(), source.getSource());
+		assert (source.getSource().equals(target.getSource()));
+		assertEquals(source.getSource(), target.getSource());
 
-		assert (target.getUrl().equals(source.getUrl()));
-		assertEquals(target.getUrl(), source.getUrl());
+		assert (source.getUrl().equals(target.getUrl()));
+		assertEquals(source.getUrl(), target.getUrl());
 
 		NoteCommand noteCommand = source.getNotes();
 		Note note = target.getNotes();

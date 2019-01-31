@@ -40,19 +40,19 @@ public class IngredientCommandToIngredientTest {
 	@Test
 	public void testConvert() {
 		Ingredient target = converter.convert(source);
-		assert (target.getId().equals(source.getId()));
-		assertEquals(target.getId(), source.getId());
+		assert (source.getId().equals(target.getId()));
+		assertEquals(source.getId(), target.getId());
 
-		assert (target.getDescription().equals(source.getDescription()));
-		assertEquals(target.getDescription(), source.getDescription());
+		assert (source.getDescription().equals(target.getDescription()));
+		assertEquals(source.getDescription(), target.getDescription());
 
-		assert (target.getAmount().equals(source.getAmount()));
-		assertEquals(target.getAmount(), source.getAmount());
+		assert (source.getAmount().equals(target.getAmount()));
+		assertEquals(source.getAmount(), target.getAmount());
 
-		assert (target.getUom().getId().equals(source.getUom().getId()));
-		assertEquals(target.getUom().getId(), source.getUom().getId());
+		assert (source.getUom().getId().equals(target.getUom().getId()));
+		assertEquals(source.getUom().getId(), target.getUom().getId());
 
-		assert (target.getUom().getDescription().equals(source.getUom().getDescription()));
-		assertEquals(target.getUom().getDescription(), source.getUom().getDescription());
+		assert (source.getUom().getDescription().equals(target.getUom().getDescription()));
+		assertEquals(source.getUom().getDescription(), target.getUom().getDescription());
 	}
 }

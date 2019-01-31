@@ -29,9 +29,9 @@ public class UnitOfMeasureToUnitOfMeasureCommandTest {
 	@Test
 	public void testConvert() {
 		UnitOfMeasureCommand target = converter.convert(source);
-		assert (target.getId().equals(source.getId()));
-		assertEquals(target.getId(), source.getId());
-		assert (target.getDescription().equals(source.getDescription()));
-		assertEquals(target.getDescription(), source.getDescription());
+		assert (source.getId().equals(target.getId()));
+		assertEquals(source.getId(), target.getId());
+		assert (source.getDescription().equals(target.getDescription()));
+		assertEquals(source.getDescription(), target.getDescription());
 	}
 }

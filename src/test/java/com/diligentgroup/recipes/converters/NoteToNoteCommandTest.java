@@ -28,9 +28,9 @@ public class NoteToNoteCommandTest {
 	@Test
 	public void testConvert() {
 		NoteCommand target = converter.convert(source);
-		assert (target.getId().equals(source.getId()));
-		assertEquals(target.getId(), source.getId());
-		assert (target.getRecipeNotes().equals(source.getRecipeNotes()));
-		assertEquals(target.getRecipeNotes(), source.getRecipeNotes());
+		assert (source.getId().equals(target.getId()));
+		assertEquals(source.getId(), target.getId());
+		assert (source.getRecipeNotes().equals(target.getRecipeNotes()));
+		assertEquals(source.getRecipeNotes(), target.getRecipeNotes());
 	}
 }
