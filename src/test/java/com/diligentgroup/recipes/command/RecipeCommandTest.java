@@ -10,8 +10,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.diligentgroup.recipes.domain.Difficulty;
-import com.diligentgroup.recipes.domain.Note;
-import com.diligentgroup.recipes.domain.Note.NoteBuilder;
 
 public class RecipeCommandTest {
 
@@ -73,8 +71,8 @@ public class RecipeCommandTest {
 
 	@Test
 	public void testAllArgsConstructor() {
-		RecipeCommand command = new RecipeCommand(id, description, prepTime, cookTime, servings, source,
-				url, directions, difficulty);
+		RecipeCommand command = new RecipeCommand(id, description, prepTime, cookTime, servings, source, url,
+				directions, difficulty);
 		assertEquals(id, command.getId());
 		assertEquals(description, command.getDescription());
 		assertEquals(directions, command.getDirections());

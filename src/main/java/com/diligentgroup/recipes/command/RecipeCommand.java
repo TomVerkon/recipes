@@ -3,9 +3,7 @@ package com.diligentgroup.recipes.command;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.diligentgroup.recipes.domain.Category;
 import com.diligentgroup.recipes.domain.Difficulty;
-import com.diligentgroup.recipes.domain.Ingredient;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -39,9 +37,9 @@ public class RecipeCommand extends DescribedCommand {
 
 	@Builder.Default
 	private Set<CategoryCommand> categories = new HashSet<>();
-	
-	public RecipeCommand(Long id, String description, Integer prepTime, Integer cookTime, Integer servings, String source,
-			String url, String directions, Difficulty difficulty) {
+
+	public RecipeCommand(Long id, String description, Integer prepTime, Integer cookTime, Integer servings,
+			String source, String url, String directions, Difficulty difficulty) {
 		super(id, description);
 		this.prepTime = prepTime;
 		this.cookTime = cookTime;
@@ -58,20 +56,17 @@ public class RecipeCommand extends DescribedCommand {
 		}
 		return this.ingredients;
 	}
-	
 
 	public void addIngredient(IngredientCommand ingredient) {
 		ingredients.add(ingredient);
 	}
-	
+
 	public Set<CategoryCommand> getCategories() {
 		if (this.categories == null) {
 			this.categories = new HashSet<>();
 		}
 		return this.categories;
 	}
-
-
 
 	public void addCategory(CategoryCommand category) {
 		getCategories().add(category);
