@@ -20,9 +20,9 @@ public class RootController {
 
 	@RequestMapping({ "", "/", "index", "/index.html" })
 	public String getIndexPage(Model model) {
-		log.info("Enter getIndexPage()");
+		log.debug("Enter getIndexPage()");
 		model.addAttribute("recipes", recipeService.getAllRecipes());
-		log.info("Exiting getIndexPage()");
+		log.debug("Exiting getIndexPage()");
 		return "index";
 	}
 }

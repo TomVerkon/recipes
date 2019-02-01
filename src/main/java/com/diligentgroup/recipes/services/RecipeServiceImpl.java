@@ -31,15 +31,15 @@ public class RecipeServiceImpl implements RecipeService {
 	}
 
 	public Set<Recipe> getAllRecipes() {
-		log.info("Entering getAllRecipes");
+		log.debug("Entering getAllRecipes");
 		Set<Recipe> recipes = new HashSet<>();
 		recipeRepository.findAll().forEach(recipes::add);
 		return recipes;
 	}
 
 	@Override
-	public Recipe getRecipeById(Long id) {
-		log.info("Entering getRecipeById");
+	public Recipe findById(Long id) {
+		log.debug("Entering findById");
 		return recipeRepository.findById(id).orElse(null);
 	}
 
@@ -48,8 +48,21 @@ public class RecipeServiceImpl implements RecipeService {
 	public RecipeCommand saveRecipeCommand(RecipeCommand recipeCommand) {
 		Recipe detachedRecipe = recipeCommandToRecipe.convert(recipeCommand);
 		Recipe recipe = recipeRepository.save(detachedRecipe);
-		log.info("saved recipe id: " + recipe.getId());
+		log.debug("saved recipe id: " + recipe.getId());
 		return recipeToRecipeCommand.convert(recipe);
 	}
+
+	@Override
+	@Transactional
+	public RecipeCommand findCommandById(Long id) {
+		return recipeToRecipeCommand.convert(findById(id));
+	}
+
+	@Override
+	public void deleteById(Long id) {
+		recipeRepository.deleteById(id);
+	}
+	
+	
 
 }

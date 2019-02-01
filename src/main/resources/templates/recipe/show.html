@@ -17,7 +17,19 @@
 			<div class="col-md-8 col-md-offset-2">
 				<div class="card" style="margin-bottom: 20px;">
 					<div class="card-header bg-primary text-white">
-						<h2 th:text="${recipe.description}" class="card-title">Meatballs</h2>
+						<div class="row">
+							<div class="col-md-9">
+								<h1 th:text="${recipe.description}" class="card-title">Meatballs</h1>
+							</div>
+							<div class="col-md-3">
+								<a class="btn btn-outline-light btn-sm" style="margin-top: 15px"
+									th:href="@{'/recipe/' + ${recipe.id} + '/update'}" href="#"
+									role="button">Edit</a>
+								<a class="btn btn-outline-light btn-sm" style="margin-top: 15px"
+									th:href="@{'/recipe/' + ${recipe.id} + '/delete'}" href="#"
+									role="button">Delete</a>
+							</div>
+						</div>
 					</div>
 					<div class="card-body">
 						<div class="row">

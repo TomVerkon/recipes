@@ -31,10 +31,9 @@
 								</thead>
 								<tbody th:each="recipe : ${recipes}"  th:remove="all-but-first">
 									<tr>
-										<!--/*@thymesVar id="recipe" thype="com.diligentgroup.recipes.domain.Recipe"*/-->
 										<td th:text="${recipe.id}">1</td>
 										<td th:text="${recipe.description}">Meatballs</td>
-										<td><a href="#" th:href="@{'/recipe/show/' + ${recipe.id}}">View</a></td>
+										<td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/show/'}">View</a></td>
 									</tr>
 									<tr>
 										<td>2</td>
