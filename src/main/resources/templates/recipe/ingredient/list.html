@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Ingredients List</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+	crossorigin="anonymous"
+	th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}">
+</head>
+
+<body>
+	<div class="container-fluid" style="margin-top: 20px;">
+		<div class="row justify-content-md-center">
+			<div class="col-md-8 col-md-offset-2">
+				<div class="card" style="margin-bottom: 20px;">
+					<div class="card-header bg-primary text-white">
+						<div class="row">
+							<div class="col-md-12 ">
+								<h1 class="card-title">Ingredients <span th:text="${#numbers.formatInteger(recipe.ingredients.size(),1)}"></span></h1>
+							</div>
+						</div>
+					</div>
+					<div class="card-body">
+						<div class="table-responsive"
+							th:if="${not #lists.isEmpty(recipe.ingredients)}">
+							<table class="table table-hover">
+								<thead class="font-weight-bold">
+									<tr>
+										<th>ID</th>
+										<th>Description</th>
+										<th>&nbsp;</th>
+										<th>&nbsp;</th>
+										<th>&nbsp;</th>
+									</tr>
+								</thead>
+								<tbody th:each="ingredient : ${recipe.ingredients}"
+									th:remove="all-but-first">
+									<tr>
+										<td th:text="${ingredient.id}">1</td>
+										<td
+											th:text="${#numbers.formatDecimal(ingredient.amount,1,2)} + ' ' + ${ingredient.uom.description} + ' - ' + ${ingredient.description}">Meatballs</td>
+										<td><a class="btn btn-outline-primary btn-sm"
+											th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}"
+											href="#" role="button">View</a></td>
+										<td><a class="btn btn-outline-dark btn-sm"
+											th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}"
+											href="#" role="button">Edit</a></td>
+										<td><a class="btn btn-outline-danger btn-sm"
+											th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}"
+											href="#" role="button">Delete</a></td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>Spaghetti</td>
+										<td><a class="btn btn-outline-primary btn-sm"
+											th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}"
+											href="#" role="button">View</a></td>
+										<td><a class="btn btn-outline-dark btn-sm"
+											th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}"
+											href="#" role="button">Edit</a></td>
+										<td><a class="btn btn-outline-danger btn-sm"
+											th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}"
+											href="#" role="button">Delete</a></td>
+									</tr>
+									<tr>
+										<td>3</td>
+										<td>Pizza</td>
+										<td><a class="btn btn-outline-primary btn-sm"
+											th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}"
+											href="#" role="button">View</a></td>
+										<td><a class="btn btn-outline-dark btn-sm"
+											th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}"
+											href="#" role="button">Edit</a></td>
+										<td><a class="btn btn-outline-danger btn-sm"
+											th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}"
+											href="#" role="button">Delete</a></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"
+		th:href="@{/webjars/jquery/3.3.1-1/jquery.min.js}"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+		integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+		crossorigin="anonymous"
+		th:href="@{/webjars/popper.js/1.14.6/umd/popper.min.js}"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+		integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+		crossorigin="anonymous"
+		th:href="@{/webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

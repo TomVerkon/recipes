@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.diligentgroup.recipes.command.RecipeCommand;
@@ -35,21 +34,21 @@ public class RecipeController {
 		model.addAttribute("recipe", new RecipeCommand());
 		return "/recipe/recipeform";
 	}
-	
+
 	@PostMapping
 	@RequestMapping("/recipe")
 	public String saveOrUpdateRecipe(@ModelAttribute RecipeCommand recipeCommand) {
 		RecipeCommand savedRecipeCommand = recipeService.saveRecipeCommand(recipeCommand);
-		return "redirect:/recipe/" + savedRecipeCommand.getId() + "/show" ;
+		return "redirect:/recipe/" + savedRecipeCommand.getId() + "/show";
 	}
-	
+
 	@GetMapping
 	@RequestMapping("/recipe/{id}/update")
 	public String updateRecipe(@PathVariable String id, Model model) {
 		model.addAttribute("recipe", recipeService.findCommandById(Long.valueOf(id)));
 		return "/recipe/recipeform";
 	}
-	
+
 	@RequestMapping("/recipe/{id}/delete")
 	public String deleteRecipeById(@PathVariable String id) {
 		recipeService.deleteById(Long.valueOf(id));

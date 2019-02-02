@@ -22,6 +22,7 @@ public class IngredientCommand extends DescribedCommand {
 
 	private BigDecimal amount;
 	private UnitOfMeasureCommand uom;
+	private Long recipeId;
 
 	public IngredientCommand(Long id, String description, BigDecimal amount, UnitOfMeasureCommand uom) {
 		super(id, description);
