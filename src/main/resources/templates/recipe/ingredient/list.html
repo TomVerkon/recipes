@@ -20,7 +20,7 @@
 					<div class="card-header bg-primary text-white">
 						<div class="row">
 							<div class="col-md-12 ">
-								<h1 class="card-title">Ingredients <span th:text="${#numbers.formatInteger(recipe.ingredients.size(),1)}"></span></h1>
+								<h1 class="card-title">Ingredients</h1>
 							</div>
 						</div>
 					</div>
@@ -44,7 +44,7 @@
 										<td
 											th:text="${#numbers.formatDecimal(ingredient.amount,1,2)} + ' ' + ${ingredient.uom.description} + ' - ' + ${ingredient.description}">Meatballs</td>
 										<td><a class="btn btn-outline-primary btn-sm"
-											th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}"
+											th:href="@{'/recipe/' + ${recipe.id} + '/ingredient/' + ${ingredient.id} + '/show'}"
 											href="#" role="button">View</a></td>
 										<td><a class="btn btn-outline-dark btn-sm"
 											th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}"

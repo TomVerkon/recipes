@@ -56,12 +56,6 @@ public class RecipeToRecipeCommand implements Converter<Recipe, RecipeCommand> {
 			recipeCommand.addCategory(
 					CategoryCommand.builder().id(category.getId()).description(category.getDescription()).build());
 		});
-		source.getIngredients().forEach(ingredient -> {
-			UnitOfMeasureCommand uomCommand = UnitOfMeasureCommand.builder()
-					.description(ingredient.getUom().getDescription()).id(ingredient.getUom().getId()).build();
-			recipeCommand.addIngredient(IngredientCommand.builder().amount(ingredient.getAmount())
-					.description(ingredient.getDescription()).id(ingredient.getId()).uom(uomCommand).build());
-		});
 		return recipeCommand;
 	}
 
