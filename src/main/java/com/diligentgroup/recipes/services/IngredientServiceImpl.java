@@ -44,4 +44,10 @@ public class IngredientServiceImpl implements IngredientService {
 		}
 	}
 
+	@Override
+	public void saveIngredient(IngredientCommand ingredientCommand) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -5,5 +5,7 @@ import com.diligentgroup.recipes.command.IngredientCommand;
 public interface IngredientService {
 
 	public IngredientCommand findByRecipeIdAndIngredientId(Long recipeId, Long id);
+	
+	public void saveIngredient(IngredientCommand ingredientCommand);
 
 }
