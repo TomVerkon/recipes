@@ -5,10 +5,8 @@ import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
 import com.diligentgroup.recipes.command.CategoryCommand;
-import com.diligentgroup.recipes.command.IngredientCommand;
 import com.diligentgroup.recipes.command.NoteCommand;
 import com.diligentgroup.recipes.command.RecipeCommand;
-import com.diligentgroup.recipes.command.UnitOfMeasureCommand;
 import com.diligentgroup.recipes.domain.Recipe;
 
 import lombok.Synchronized;

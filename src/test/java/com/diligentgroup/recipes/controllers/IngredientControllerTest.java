@@ -20,6 +20,7 @@ import com.diligentgroup.recipes.command.IngredientCommand;
 import com.diligentgroup.recipes.command.RecipeCommand;
 import com.diligentgroup.recipes.services.IngredientService;
 import com.diligentgroup.recipes.services.RecipeService;
+import com.diligentgroup.recipes.services.UnitOfMeasureService;
 
 public class IngredientControllerTest {
 
@@ -29,6 +30,9 @@ public class IngredientControllerTest {
 	@Mock
 	IngredientService ingredientService;
 
+	@Mock
+	UnitOfMeasureService uomService;
+
 	IngredientController controller;
 
 	MockMvc mockMvc;
@@ -36,7 +40,7 @@ public class IngredientControllerTest {
 	@Before
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
-		controller = new IngredientController(recipeService, ingredientService);
+		controller = new IngredientController(recipeService, ingredientService, uomService);
 		mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
 	}
 

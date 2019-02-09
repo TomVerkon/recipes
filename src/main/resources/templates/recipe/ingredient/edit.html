@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Ingredient</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+	crossorigin="anonymous"
+	th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}">
+</head>
+
+<body>
+	<div class="container-fluid" style="margin-top: 20px;">
+		<div class="row justify-content-md-center">
+			<div class="col-md-8 col-md-offset-2">
+				<div class="card" style="margin-bottom: 20px;">
+					<div class="card-header bg-primary text-white">
+						<div class="row">
+							<div class="col-md-12 ">
+								<h1 class="card-title">Edit Ingredient</h1>
+							</div>
+						</div>
+					</div>
+					<div class="card-body">
+						<form th:object="${ingredient}"
+							th:action="@{'/recipe/' + ${ingredient.getRecipeId()} + '/ingredient'} "
+							method="post">
+							<input type="hidden" th:field="*{id}" />
+							<div class="row">
+								<div class="col-md-3 form-group">
+									<label>Amount:</label> <input type="number"
+										class="form-control" th:field="*{amount}" />
+								</div>
+								<div class="col-md-3 form-group">
+									<label>UOM:</label> <select class="form-control" name="uom.id">
+										<option th:each="uom : ${uoms}"
+											th:value="${uom.id}"
+											th:selected="${uom.id.equals(ingredient.uom.id)}"
+											th:text="${uom.description}">Each</option>
+									</select>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 form-group">
+									<label>Description:</label> <input type="text"
+										class="form-control" th:field="*{description}" />
+								</div>
+							</div>
+							<button type="submit" class="btn btn-primary">Submit</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"
+		th:href="@{/webjars/jquery/3.3.1-1/jquery.min.js}"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+		integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+		crossorigin="anonymous"
+		th:href="@{/webjars/popper.js/1.14.6/umd/popper.min.js}"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+		integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+		crossorigin="anonymous"
+		th:href="@{/webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

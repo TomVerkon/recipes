@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import com.diligentgroup.recipes.command.IngredientCommand;
 import com.diligentgroup.recipes.converters.IngredientToIngredientCommand;
 import com.diligentgroup.recipes.domain.Recipe;
-import com.diligentgroup.recipes.domain.Ingredient;
 import com.diligentgroup.recipes.repositories.RecipeRepository;
 
 import lombok.extern.slf4j.Slf4j;

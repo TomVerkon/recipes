@@ -47,10 +47,10 @@
 											th:href="@{'/recipe/' + ${recipe.id} + '/ingredient/' + ${ingredient.id} + '/show'}"
 											href="#" role="button">View</a></td>
 										<td><a class="btn btn-outline-dark btn-sm"
-											th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}"
+											th:href="@{'/recipe/' + ${recipe.id} + '/ingredient/' + ${ingredient.id} + '/update'}"
 											href="#" role="button">Edit</a></td>
 										<td><a class="btn btn-outline-danger btn-sm"
-											th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}"
+											th:href="@{'/recipe/' + ${recipe.id} + '/ingredients/' + ${ingredient.id} + '/delete'}"
 											href="#" role="button">Delete</a></td>
 									</tr>
 									<tr>
