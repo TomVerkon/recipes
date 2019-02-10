@@ -27,9 +27,10 @@ public class RecipeToRecipeCommand implements Converter<Recipe, RecipeCommand> {
 	}
 
 	/**
-	 * Converts a recipe and all contained objects into their equivalent Command objects
+	 * Converts a recipe and all contained objects into their equivalent Command
+	 * objects
 	 * 
-	 * @param source  a Recipe object, source can be null
+	 * @param source a Recipe object, source can be null
 	 * @return a RecipeCommand or null if source is null
 	 * @see Recipe
 	 * @see RecipeCommand

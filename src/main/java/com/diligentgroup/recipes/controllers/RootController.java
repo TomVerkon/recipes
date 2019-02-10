@@ -2,7 +2,7 @@ package com.diligentgroup.recipes.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import com.diligentgroup.recipes.services.RecipeServiceImpl;
 
@@ -18,7 +18,7 @@ public class RootController {
 		this.recipeService = recipeService;
 	}
 
-	@RequestMapping({ "", "/", "index", "/index.html" })
+	@GetMapping({ "", "/", "index", "/index.html" })
 	public String getIndexPage(Model model) {
 		log.debug("Enter getIndexPage()");
 		model.addAttribute("recipes", recipeService.getAllRecipes());
