@@ -26,6 +26,14 @@ public class RecipeToRecipeCommand implements Converter<Recipe, RecipeCommand> {
 		this.noteConverter = noteConverter;
 	}
 
+	/**
+	 * Converts a recipe and all contained objects into their equivalent Command objects
+	 * 
+	 * @param source  a Recipe object, source can be null
+	 * @return a RecipeCommand or null if source is null
+	 * @see Recipe
+	 * @see RecipeCommand
+	 */
 	@Synchronized
 	@Nullable
 	@Override

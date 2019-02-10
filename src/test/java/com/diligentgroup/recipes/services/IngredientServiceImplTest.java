@@ -21,6 +21,7 @@ import com.diligentgroup.recipes.converters.UnitOfMeasureCommandToUnitOfMeasure;
 import com.diligentgroup.recipes.converters.UnitOfMeasureToUnitOfMeasureCommand;
 import com.diligentgroup.recipes.domain.Ingredient;
 import com.diligentgroup.recipes.domain.Recipe;
+import com.diligentgroup.recipes.repositories.IngredientRepository;
 import com.diligentgroup.recipes.repositories.RecipeRepository;
 import com.diligentgroup.recipes.repositories.UnitOfMeasureRepository;
 
@@ -34,6 +35,9 @@ public class IngredientServiceImplTest {
 
 	@Mock
 	UnitOfMeasureRepository uomRepository;
+
+	@Mock
+	IngredientRepository ingredientRepository;
 
 	IngredientService ingredientService;
 
@@ -49,8 +53,8 @@ public class IngredientServiceImplTest {
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
 
-		ingredientService = new IngredientServiceImpl(recipeRepository, uomRepository, ingredientToIngredientCommand,
-				ingredientCommandToIngredient);
+		ingredientService = new IngredientServiceImpl(recipeRepository, uomRepository, ingredientRepository,
+				ingredientToIngredientCommand, ingredientCommandToIngredient);
 	}
 
 	@Test
@@ -111,6 +115,11 @@ public class IngredientServiceImplTest {
 		assertEquals(Long.valueOf(3L), savedCommand.getId());
 		verify(recipeRepository, times(1)).findById(anyLong());
 		verify(recipeRepository, times(1)).save(any(Recipe.class));
+
+	}
+
+	@Test
+	public void testDeleteIngredientById() throws Exception {
 
 	}
 }

@@ -2,6 +2,8 @@ package com.diligentgroup.recipes.services;
 
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
 import com.diligentgroup.recipes.command.IngredientCommand;
@@ -9,6 +11,7 @@ import com.diligentgroup.recipes.converters.IngredientCommandToIngredient;
 import com.diligentgroup.recipes.converters.IngredientToIngredientCommand;
 import com.diligentgroup.recipes.domain.Ingredient;
 import com.diligentgroup.recipes.domain.Recipe;
+import com.diligentgroup.recipes.repositories.IngredientRepository;
 import com.diligentgroup.recipes.repositories.RecipeRepository;
 import com.diligentgroup.recipes.repositories.UnitOfMeasureRepository;
 
@@ -20,15 +23,17 @@ public class IngredientServiceImpl implements IngredientService {
 
 	private RecipeRepository recipeRepository;
 	private UnitOfMeasureRepository uomRepository;
+	private IngredientRepository ingredientRepository;
 	private IngredientToIngredientCommand ingredientToIngredientCommand;
 	private IngredientCommandToIngredient ingredientCommandToIngredient;
 
 	public IngredientServiceImpl(RecipeRepository recipeRepository, UnitOfMeasureRepository uomRepository,
-			IngredientToIngredientCommand ingredientToIngredientCommand,
+			IngredientRepository ingredientRepository, IngredientToIngredientCommand ingredientToIngredientCommand,
 			IngredientCommandToIngredient ingredientCommandToIngredient) {
 		super();
 		this.recipeRepository = recipeRepository;
 		this.uomRepository = uomRepository;
+		this.ingredientRepository = ingredientRepository;
 		this.ingredientToIngredientCommand = ingredientToIngredientCommand;
 		this.ingredientCommandToIngredient = ingredientCommandToIngredient;
 	}
@@ -88,6 +93,12 @@ public class IngredientServiceImpl implements IngredientService {
 
 		}
 		return localIngredientCommand;
+	}
+
+	@Override
+	@Transactional
+	public long deleteIngredientByIdAndRecipeId(Long id, Long recipeId) {
+		return ingredientRepository.deleteByIdAndRecipeId(id, recipeId);
 	}
 
 }
