@@ -3,12 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <title>Recipe Form</title>
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-	crossorigin="anonymous"
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"
 	th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}">
 </head>
 <body>
@@ -26,8 +23,7 @@
 							<div class="card-body">
 								<div class="row">
 									<div class="col-md-10 form-group">
-										<label>Recipe Description:</label> <input type="text"
-											class="form-control" th:field="*{description}" />
+										<label>Recipe Description:</label> <input type="text" class="form-control" th:field="*{description}" />
 									</div>
 								</div>
 								<div class="row">
@@ -47,33 +43,33 @@
 								</div>
 								<div class="row">
 									<div class="col-md-3 form-group">
-										<label>Prep Time:</label> <input type="text"
-											class="form-control" th:field="*{prepTime}" />
+										<label>Prep Time:</label> <input type="text" class="form-control" th:field="*{prepTime}" />
 									</div>
 									<div class="col-md-3 form-group">
-										<label>Cooktime:</label> <input type="text"
-											class="form-control" th:field="*{cookTime}" />
+										<label>Cooktime:</label> <input type="text" class="form-control" th:field="*{cookTime}" />
 									</div>
+
 									<div class="col-md-3 form-group">
-										<label>Difficulty:</label> <select class="form-control">
-											<option>Easy</option>
-											<option>Medium</option>
-											<option>Hard</option>
+										<label>Difficulty:</label> 
+										<select class="form-control" th:field="*{difficulty}" th:remove="all-but-first">
+											<option th:each="difficultyValue : ${T(com.diligentgroup.recipes.domain.Difficulty).values()}"
+												th:value="${difficultyValue}"
+												th:text="${difficultyValue}">EASY</option>
+											<option>MODERATE</option>
+											<option>KIND-OF-HARD</option>
+											<option>REALLY-HARD</option>
 										</select>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-md-3 form-group">
-										<label>Servings:</label> <input type="text"
-											class="form-control" th:field="*{servings}" />
+										<label>Servings:</label> <input type="text" class="form-control" th:field="*{servings}" />
 									</div>
 									<div class="col-md-3 form-group">
-										<label>Source:</label> <input type="text" class="form-control"
-											th:field="*{source}" />
+										<label>Source:</label> <input type="text" class="form-control" th:field="*{source}" />
 									</div>
 									<div class="col-md-3 form-group">
-										<label>URL:</label> <input type="text" class="form-control"
-											th:field="*{url}" />
+										<label>URL:</label> <input type="text" class="form-control" th:field="*{url}" />
 									</div>
 								</div>
 							</div>
@@ -109,8 +105,7 @@
 							<div class="card-body">
 								<div class="row">
 									<div class="col-md-12 form-group">
-										<textarea class="form-control" rows="3"
-											th:field="*{directions}"></textarea>
+										<textarea class="form-control" rows="3" th:field="*{directions}"></textarea>
 									</div>
 								</div>
 							</div>
@@ -122,8 +117,7 @@
 							<div class="card-body">
 								<div class="row">
 									<div class="col-md-12 form-group">
-										<textarea class="form-control" rows="3"
-											th:field="*{notes.recipeNotes}"></textarea>
+										<textarea class="form-control" rows="3" th:field="*{notes.recipeNotes}"></textarea>
 									</div>
 								</div>
 							</div>
@@ -135,18 +129,13 @@
 		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"
 		th:href="@{/webjars/jquery/3.3.1-1/jquery.min.js}"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
-		integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-		crossorigin="anonymous"
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+		integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"
 		th:href="@{/webjars/popper.js/1.14.6/umd/popper.min.js}"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
-		integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-		crossorigin="anonymous"
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+		integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"
 		th:href="@{/webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
 </body>
 </html>
