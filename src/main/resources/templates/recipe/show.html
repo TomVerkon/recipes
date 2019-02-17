@@ -34,10 +34,10 @@
 					</div>
 					<div class="card-body">
 						<div class="row">
-							<div class="col-md-4">
+							<div class="col-md-3">
 								<h5>Categories:</h5>
 							</div>
-							<div class="col-md-8">
+							<div class="col-md-3">
 								<ul th:each="category : ${recipe.categories}"
 									th:remove="all-but-first">
 									<li th:text="${category.description}">Category 1</li>
@@ -45,6 +45,11 @@
 									<li>Category 3</li>
 								</ul>
 							</div>
+							<div class="col-md-6">
+                                <img src="../../static/images/guacamole400x400WithX.jpg"
+                                     th:src="@{/images/guacamole400x400WithX.jpg}"
+                                     width="200" height="200">
+                            </div>
 						</div>
 						<div class="row">
 							<div class="col-md-3">
