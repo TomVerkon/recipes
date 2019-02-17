@@ -28,9 +28,7 @@ public abstract class BaseEntity implements Serializable {
 	 */
 	private static final long serialVersionUID = -4205582468676642223L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private String id;
 
 	public boolean isNew() {
 		return this.id == null;

@@ -11,7 +11,7 @@ import org.junit.Test;
 public class IngredientTest {
 
 	Ingredient object;
-	Long idValue = Long.valueOf(Long.MAX_VALUE);
+	String idValue = String.valueOf(Long.MAX_VALUE);
 	String description = "description";
 	UnitOfMeasure uom;
 	BigDecimal amount = BigDecimal.TEN;

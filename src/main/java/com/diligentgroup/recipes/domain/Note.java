@@ -18,7 +18,6 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @Table(name = "notes")
 @EqualsAndHashCode(callSuper = true, exclude = { "recipe" })
-@Entity
 public class Note extends BaseEntity {
 
 	/**
@@ -26,12 +25,12 @@ public class Note extends BaseEntity {
 	 */
 	private static final long serialVersionUID = -3684426981819400142L;
 
-	public Note(Long id, String recipeNotes) {
+	public Note(String id, String recipeNotes) {
 		super(id);
 		this.recipeNotes = recipeNotes;
 	}
 
-	public Note(Long id, String recipeNotes, Recipe recipe) {
+	public Note(String id, String recipeNotes, Recipe recipe) {
 		super(id);
 		this.recipeNotes = recipeNotes;
 		this.recipe = recipe;
@@ -39,10 +38,8 @@ public class Note extends BaseEntity {
 
 	// no cascade because recipe manages this relationship
 	@ToString.Exclude
-	@OneToOne
 	private Recipe recipe;
 
-	@Lob
 	private String recipeNotes;
 
 }

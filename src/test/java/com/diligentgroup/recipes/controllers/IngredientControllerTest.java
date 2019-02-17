@@ -2,6 +2,7 @@ package com.diligentgroup.recipes.controllers;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -51,7 +52,7 @@ public class IngredientControllerTest {
 	public void listIngredientTest() throws Exception {
 		// given
 		RecipeCommand recipeCommand = new RecipeCommand();
-		when(recipeService.findCommandById(anyLong())).thenReturn(recipeCommand);
+		when(recipeService.findCommandById(anyString())).thenReturn(recipeCommand);
 
 		// when
 		mockMvc.perform(get("/recipe/1/ingredients")).andExpect(status().isOk())
@@ -59,7 +60,7 @@ public class IngredientControllerTest {
 				.andExpect(model().attribute("recipe", recipeCommand));
 
 		// then
-		verify(recipeService, times(1)).findCommandById(anyLong());
+		verify(recipeService, times(1)).findCommandById(anyString());
 	}
 
 	@Test
@@ -69,7 +70,7 @@ public class IngredientControllerTest {
 		IngredientCommand ingredientCommand = new IngredientCommand();
 
 		// when
-		when(ingredientService.findByRecipeIdAndIngredientId(anyLong(), anyLong())).thenReturn(ingredientCommand);
+		when(ingredientService.findByRecipeIdAndIngredientId(anyString(), anyString())).thenReturn(ingredientCommand);
 
 		// then
 		mockMvc.perform(get("/recipe/1/ingredient/1/show")).andExpect(status().isOk())
@@ -82,8 +83,8 @@ public class IngredientControllerTest {
 	public void testSaveOrUpdate() throws Exception {
 		// given
 		IngredientCommand command = new IngredientCommand();
-		command.setId(3L);
-		command.setRecipeId(2L);
+		command.setId("3");
+		command.setRecipeId("2");
 
 		// when
 		when(ingredientService.saveIngredient(any())).thenReturn(command);

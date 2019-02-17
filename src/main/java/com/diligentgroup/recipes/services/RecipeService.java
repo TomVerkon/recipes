@@ -9,12 +9,12 @@ public interface RecipeService {
 
 	public Set<Recipe> getAllRecipes();
 
-	public Recipe findById(Long id);
+	public Recipe findById(String id);
 
 	public RecipeCommand saveRecipeCommand(RecipeCommand recipeCommand);
 
-	public RecipeCommand findCommandById(Long id);
+	public RecipeCommand findCommandById(String id);
 
-	public void deleteById(Long id);
+	public void deleteById(String id);
 
 }

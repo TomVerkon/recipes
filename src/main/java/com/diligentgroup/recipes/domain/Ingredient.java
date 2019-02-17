@@ -21,7 +21,6 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @Table(name = "ingredients")
 @EqualsAndHashCode(callSuper = true, exclude = { "recipe" })
-@Entity
 public class Ingredient extends DescribedEntity {
 
 	/**
@@ -31,17 +30,15 @@ public class Ingredient extends DescribedEntity {
 
 	private BigDecimal amount;
 
-	public Ingredient(Long id, String description, BigDecimal amount, UnitOfMeasure uom) {
+	public Ingredient(String id, String description, BigDecimal amount, UnitOfMeasure uom) {
 		super(id, description);
 		this.amount = amount;
 		this.uom = uom;
 	}
 
-	@OneToOne(fetch = FetchType.EAGER)
 	private UnitOfMeasure uom;
 
 	@ToString.Exclude
-	@ManyToOne
 	private Recipe recipe;
 
 }

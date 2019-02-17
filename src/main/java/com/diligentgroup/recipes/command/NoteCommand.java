@@ -18,7 +18,7 @@ public class NoteCommand extends IdCommand {
 
 	private String recipeNotes;
 
-	public NoteCommand(Long id, String recipeNotes) {
+	public NoteCommand(String id, String recipeNotes) {
 		super(id);
 		this.recipeNotes = recipeNotes;
 	}

@@ -17,7 +17,7 @@ public class NoteToNoteCommandTest {
 	@Before
 	public void setUp() throws Exception {
 		this.converter = new NoteToNoteCommand();
-		source = new Note(1L, "recipeNotes");
+		source = new Note("1", "recipeNotes");
 	}
 
 	@Test

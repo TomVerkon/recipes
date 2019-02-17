@@ -22,9 +22,9 @@ public class IngredientCommand extends DescribedCommand {
 
 	private BigDecimal amount;
 	private UnitOfMeasureCommand uom;
-	private Long recipeId;
+	private String recipeId;
 
-	public IngredientCommand(Long id, String description, BigDecimal amount, UnitOfMeasureCommand uom) {
+	public IngredientCommand(String id, String description, BigDecimal amount, UnitOfMeasureCommand uom) {
 		super(id, description);
 		this.amount = amount;
 		this.uom = uom;

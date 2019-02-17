@@ -13,12 +13,12 @@ public class NoteCommandTest {
 
 	@Before
 	public void setUp() throws Exception {
-		command = NoteCommand.builder().id(1L).recipeNotes(recipeNotes).build();
+		command = NoteCommand.builder().id("1").recipeNotes(recipeNotes).build();
 	}
 
 	@Test
 	public void testId() {
-		assertEquals(Long.valueOf(1L), command.getId());
+		assertEquals(String.valueOf("1"), command.getId());
 	}
 
 	@Test

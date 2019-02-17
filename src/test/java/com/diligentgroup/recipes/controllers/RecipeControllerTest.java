@@ -2,6 +2,7 @@ package com.diligentgroup.recipes.controllers;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -39,7 +40,7 @@ public class RecipeControllerTest {
 
 	@Test
 	public void testShowRecipeById() throws Exception {
-		when(recipeService.findById(anyLong())).thenReturn(Recipe.builder().id(1L).build());
+		when(recipeService.findById(anyString())).thenReturn(Recipe.builder().id("1").build());
 		mockMvc.perform(get("/recipe/1/show")).andExpect(status().isOk()).andExpect(view().name("/recipe/show"))
 				.andExpect(model().attributeExists("recipe"));
 	}
@@ -53,7 +54,7 @@ public class RecipeControllerTest {
 	@Test
 	public void testSaveOrUpdateRecipe() throws Exception {
 		RecipeCommand command = new RecipeCommand();
-		command.setId(1L);
+		command.setId("1");
 		when(recipeService.saveRecipeCommand(any())).thenReturn(command);
 		mockMvc.perform(post("/recipe").contentType(MediaType.APPLICATION_FORM_URLENCODED).param("id", "1")
 				.param("description", "Some new Discription")).andExpect(status().is3xxRedirection())
@@ -63,8 +64,8 @@ public class RecipeControllerTest {
 	@Test
 	public void testUpdateRecipe() throws Exception {
 		RecipeCommand command = new RecipeCommand();
-		command.setId(1L);
-		when(recipeService.findCommandById(anyLong())).thenReturn(command);
+		command.setId("1");
+		when(recipeService.findCommandById(anyString())).thenReturn(command);
 		mockMvc.perform(get("/recipe/1/update")).andExpect(status().isOk()).andExpect(view().name("/recipe/recipeform"))
 				.andExpect(model().attributeExists("recipe"));
 	}

@@ -22,6 +22,6 @@ public abstract class IdCommand implements Serializable {
 	 */
 	private static final long serialVersionUID = 4584230674018206090L;
 
-	private Long id;
+	private String id;
 
 }

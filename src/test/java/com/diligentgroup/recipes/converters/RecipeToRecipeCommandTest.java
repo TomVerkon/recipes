@@ -35,12 +35,12 @@ public class RecipeToRecipeCommandTest {
 
 		converter = new RecipeToRecipeCommand(ingredientConverter, categoryConverter, noteConverter);
 		source = Recipe.builder().description(description).cookTime(Integer.MAX_VALUE).difficulty(Difficulty.EASY)
-				.directions("directions").id(Long.MAX_VALUE).prepTime(Integer.MAX_VALUE).servings(Integer.MIN_VALUE)
+				.directions("directions").id(String.valueOf(Long.MAX_VALUE)).prepTime(Integer.MAX_VALUE).servings(Integer.MIN_VALUE)
 				.source("source").url("url").build();
-		UnitOfMeasure uom = new UnitOfMeasure(Long.MAX_VALUE, description);
-		source.addCategory(Category.builder().description(description).id(Long.MAX_VALUE).build());
-		source.addIngredient(new Ingredient(Long.MAX_VALUE, description, BigDecimal.TEN, uom));
-		source.setNotes(Note.builder().id(Long.MIN_VALUE).recipeNotes("recipeNotes").build());
+		UnitOfMeasure uom = new UnitOfMeasure(String.valueOf(Long.MAX_VALUE), description);
+		source.addCategory(Category.builder().description(description).id(String.valueOf(Long.MAX_VALUE)).build());
+		source.addIngredient(new Ingredient(String.valueOf(Long.MAX_VALUE), description, BigDecimal.TEN, uom));
+		source.setNotes(Note.builder().id(String.valueOf(Long.MIN_VALUE)).recipeNotes("recipeNotes").build());
 	}
 
 	@Test

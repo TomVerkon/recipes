@@ -20,7 +20,7 @@ public abstract class DescribedCommand extends IdCommand {
 
 	private String description;
 
-	public DescribedCommand(Long id, String description) {
+	public DescribedCommand(String id, String description) {
 		super(id);
 		this.description = description;
 	}

@@ -3,6 +3,7 @@ package com.diligentgroup.recipes.services;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -46,15 +47,15 @@ public class RecipeServiceImplTest {
 	@Test
 	public void findRecipeByIdTest() throws Exception {
 		Recipe recipe = new Recipe();
-		recipe.setId(1L);
+		recipe.setId("1");
 		Optional<Recipe> recipeOptional = Optional.of(recipe);
 
-		when(recipeRepository.findById(anyLong())).thenReturn(recipeOptional);
+		when(recipeRepository.findById(anyString())).thenReturn(recipeOptional);
 
-		Recipe recipeReturned = recipeService.findById(1L);
+		Recipe recipeReturned = recipeService.findById("1");
 
 		assertNotNull("Null recipe returned", recipeReturned);
-		verify(recipeRepository, times(1)).findById(anyLong());
+		verify(recipeRepository, times(1)).findById(anyString());
 		verify(recipeRepository, never()).findAll();
 	}
 
@@ -71,16 +72,16 @@ public class RecipeServiceImplTest {
 
 		assertEquals(recipes.size(), 1);
 		verify(recipeRepository, times(1)).findAll();
-		verify(recipeRepository, never()).findById(anyLong());
+		verify(recipeRepository, never()).findById(anyString());
 	}
 
 	@Test
 	public void deleteRecipeByIdTest() throws Exception {
 
-		Long id = Long.valueOf(2L);
+		String id = String.valueOf(2L);
 		recipeService.deleteById(id);
-		verify(recipeRepository, times(1)).deleteById(anyLong());
-		verify(recipeRepository, never()).findById(anyLong());
+		verify(recipeRepository, times(1)).deleteById(anyString());
+		verify(recipeRepository, never()).findById(anyString());
 	}
 
 }

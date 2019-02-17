@@ -39,8 +39,8 @@ public class UnitOfMeasureServiceImplTest {
 
 		// givin - setup the mock repository return values
 		Set<UnitOfMeasure> uoms = new HashSet<>();
-		uoms.add(UnitOfMeasure.builder().id(1L).build());
-		uoms.add(UnitOfMeasure.builder().id(2L).build());
+		uoms.add(UnitOfMeasure.builder().id("1").build());
+		uoms.add(UnitOfMeasure.builder().id("2").build());
 
 		// when - stipulate that the repository will return the values above
 		when(repository.findAll()).thenReturn(uoms);

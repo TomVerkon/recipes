@@ -26,7 +26,7 @@ public abstract class DescribedEntity extends BaseEntity {
 	@Column(name = "description")
 	private String description;
 
-	public DescribedEntity(Long id, String description) {
+	public DescribedEntity(String id, String description) {
 		super(id);
 		this.description = description;
 	}

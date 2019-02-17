@@ -13,9 +13,7 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @NoArgsConstructor
 @SuperBuilder
-@Table(name = "uoms")
 @EqualsAndHashCode(callSuper = true)
-@Entity
 public class UnitOfMeasure extends DescribedEntity {
 
 	/**
@@ -23,7 +21,7 @@ public class UnitOfMeasure extends DescribedEntity {
 	 */
 	private static final long serialVersionUID = 8606785575499021363L;
 
-	public UnitOfMeasure(Long id, String description) {
+	public UnitOfMeasure(String id, String description) {
 		super(id, description);
 	}
 

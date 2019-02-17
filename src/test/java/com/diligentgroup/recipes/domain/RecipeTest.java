@@ -12,7 +12,7 @@ import org.junit.Test;
 public class RecipeTest {
 
 	Recipe object;
-	Long idValue = Long.valueOf(Long.MAX_VALUE);
+	String idValue = String.valueOf(Long.MAX_VALUE);
 	Integer cookTime = Integer.valueOf(10);
 	Integer prepTime = Integer.valueOf(20);
 	Integer servings = Integer.valueOf(4);

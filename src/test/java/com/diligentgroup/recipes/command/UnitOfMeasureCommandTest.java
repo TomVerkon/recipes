@@ -13,12 +13,12 @@ public class UnitOfMeasureCommandTest {
 
 	@Before
 	public void setUp() throws Exception {
-		command = UnitOfMeasureCommand.builder().id(1L).build();
+		command = UnitOfMeasureCommand.builder().id("1").build();
 	}
 
 	@Test
 	public void testId() {
-		assertEquals(Long.valueOf(1L), command.getId());
+		assertEquals(String.valueOf("1"), command.getId());
 	}
 
 	@Test

@@ -57,8 +57,8 @@ public class RootControllerTest {
 
 		// givin
 		Set<Recipe> recipes = new HashSet<>();
-		recipes.add(Recipe.builder().id(1L).build());
-		recipes.add(Recipe.builder().id(2L).build());
+		recipes.add(Recipe.builder().id("1").build());
+		recipes.add(Recipe.builder().id("2").build());
 		when(recipeService.getAllRecipes()).thenReturn(recipes);
 
 		@SuppressWarnings("unchecked")

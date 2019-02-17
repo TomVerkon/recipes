@@ -18,7 +18,7 @@ public class CategoryCommand extends DescribedCommand {
 	 */
 	private static final long serialVersionUID = 4741324958534700430L;
 
-	public CategoryCommand(Long id, String description) {
+	public CategoryCommand(String id, String description) {
 		super(id, description);
 	}
 

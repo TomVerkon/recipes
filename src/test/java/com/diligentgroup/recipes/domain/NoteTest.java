@@ -10,7 +10,7 @@ import org.junit.Test;
 public class NoteTest {
 
 	Note object;
-	Long idValue = Long.valueOf(Long.MAX_VALUE);
+	String idValue = String.valueOf(Long.MAX_VALUE);
 	String recipeNotes = "recipeNotes";
 
 	@Before

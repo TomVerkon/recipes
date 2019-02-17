@@ -22,7 +22,7 @@ public class IngredientCommandToIngredientTest {
 
 	BigDecimal amount = BigDecimal.TEN;
 	String description = "description";
-	Long id = Long.MAX_VALUE;
+	String id = String.valueOf(Long.MAX_VALUE);
 
 	@Before
 	public void setUp() throws Exception {

@@ -38,7 +38,7 @@ public class RecipeCommand extends DescribedCommand {
 	@Builder.Default
 	private Set<CategoryCommand> categories = new HashSet<>();
 
-	public RecipeCommand(Long id, String description, Integer prepTime, Integer cookTime, Integer servings,
+	public RecipeCommand(String id, String description, Integer prepTime, Integer cookTime, Integer servings,
 			String source, String url, String directions, Difficulty difficulty) {
 		super(id, description);
 		this.prepTime = prepTime;

@@ -18,7 +18,7 @@ public class CategoryCommandToCategoryTest {
 	@Before
 	public void setUp() throws Exception {
 		converter = new CategoryCommandToCategory();
-		source = new CategoryCommand(10L, "description");
+		source = new CategoryCommand("10", "description");
 	}
 
 	@Test

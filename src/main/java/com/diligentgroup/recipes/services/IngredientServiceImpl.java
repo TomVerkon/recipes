@@ -39,7 +39,7 @@ public class IngredientServiceImpl implements IngredientService {
 	}
 
 	@Override
-	public IngredientCommand findByRecipeIdAndIngredientId(Long recipeId, Long id) {
+	public IngredientCommand findByRecipeIdAndIngredientId(String recipeId, String id) {
 
 		Recipe recipe = recipeRepository.findById(recipeId).orElse(null);
 		if (null == recipe) {
@@ -97,7 +97,7 @@ public class IngredientServiceImpl implements IngredientService {
 
 	@Override
 	@Transactional
-	public long deleteIngredientByIdAndRecipeId(Long id, Long recipeId) {
+	public long deleteIngredientByIdAndRecipeId(String id, String recipeId) {
 		return ingredientRepository.deleteByIdAndRecipeId(id, recipeId);
 	}
 

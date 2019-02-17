@@ -18,7 +18,7 @@ public class RecipeCommandTest {
 	String directions = "directions";
 	String source = "source";
 	String url = "url";
-	Long id = Long.MAX_VALUE;
+	String id = String.valueOf(Long.MAX_VALUE);
 	Integer prepTime = Integer.valueOf(20);
 	Integer cookTime = Integer.valueOf(30);
 	Integer servings = Integer.valueOf(4);

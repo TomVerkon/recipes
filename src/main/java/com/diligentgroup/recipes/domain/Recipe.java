@@ -33,9 +33,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-@Table(name = "recipes")
 @EqualsAndHashCode(callSuper = true, exclude = { "categories", "ingredients", "image" })
-@Entity
 public class Recipe extends DescribedEntity {
 
 	/**
@@ -48,30 +46,18 @@ public class Recipe extends DescribedEntity {
 	private Integer servings;
 	private String source;
 	private String url;
-
-	@Lob
 	private String directions;
-
-	@Enumerated(value = EnumType.STRING)
 	private Difficulty difficulty;
 
 	@Builder.Default
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
 	private Set<Ingredient> ingredients = new HashSet<>();
-
-	@Lob
 	private Byte[] image;
-
-	// cascade used so that notes are managed by a recipe
-	@OneToOne(cascade = CascadeType.ALL)
 	private Note notes;
 
 	@Builder.Default
-	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-	@JoinTable(name = "recipe_category", joinColumns = @JoinColumn(name = "recipe_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
 	private Set<Category> categories = new HashSet<>();
 
-	public Recipe(Long id, String description, Integer prepTime, Integer cookTime, Integer servings, String source,
+	public Recipe(String id, String description, Integer prepTime, Integer cookTime, Integer servings, String source,
 			String url, String directions, Difficulty difficulty) {
 		super(id, description);
 		this.prepTime = prepTime;

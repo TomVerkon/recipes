@@ -18,7 +18,7 @@ public class UnitOfMeasureCommandToUnitOfMeasureTest {
 	@Before
 	public void setUp() throws Exception {
 		converter = new UnitOfMeasureCommandToUnitOfMeasure();
-		source = new UnitOfMeasureCommand(10L, "description");
+		source = new UnitOfMeasureCommand("10", "description");
 	}
 
 	@Test
