@@ -1,9 +1,6 @@
 package com.diligentgroup.recipes.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Lob;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import org.springframework.stereotype.Component;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -16,8 +13,8 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @NoArgsConstructor
 @SuperBuilder
-@Table(name = "notes")
 @EqualsAndHashCode(callSuper = true, exclude = { "recipe" })
+@Component
 public class Note extends BaseEntity {
 
 	/**

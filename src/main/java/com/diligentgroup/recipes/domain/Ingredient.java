@@ -2,11 +2,7 @@ package com.diligentgroup.recipes.domain;
 
 import java.math.BigDecimal;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import org.springframework.stereotype.Component;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -19,8 +15,8 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @NoArgsConstructor
 @SuperBuilder
-@Table(name = "ingredients")
 @EqualsAndHashCode(callSuper = true, exclude = { "recipe" })
+@Component
 public class Ingredient extends DescribedEntity {
 
 	/**

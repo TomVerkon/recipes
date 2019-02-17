@@ -3,9 +3,7 @@ package com.diligentgroup.recipes.domain;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import org.springframework.stereotype.Component;
 
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -18,8 +16,8 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @SuperBuilder
 @NoArgsConstructor
-@Table(name = "categories")
 @EqualsAndHashCode(callSuper = true, exclude = { "recipes" })
+@Component
 public class Category extends DescribedEntity {
 
 	/**

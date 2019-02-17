@@ -1,7 +1,6 @@
 package com.diligentgroup.recipes.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import org.springframework.stereotype.Component;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -14,6 +13,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @SuperBuilder
 @EqualsAndHashCode(callSuper = true)
+@Component
 public class UnitOfMeasure extends DescribedEntity {
 
 	/**

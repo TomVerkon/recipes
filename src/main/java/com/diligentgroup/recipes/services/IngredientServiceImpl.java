@@ -2,8 +2,6 @@ package com.diligentgroup.recipes.services;
 
 import java.util.Optional;
 
-import javax.transaction.Transactional;
-
 import org.springframework.stereotype.Service;
 
 import com.diligentgroup.recipes.command.IngredientCommand;
@@ -96,7 +94,6 @@ public class IngredientServiceImpl implements IngredientService {
 	}
 
 	@Override
-	@Transactional
 	public long deleteIngredientByIdAndRecipeId(String id, String recipeId) {
 		return ingredientRepository.deleteByIdAndRecipeId(id, recipeId);
 	}
