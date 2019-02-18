@@ -7,20 +7,18 @@ import java.util.Optional;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.diligentgroup.recipes.domain.UnitOfMeasure;
 
 //Integration test with the back end.
-@Ignore
 @RunWith(SpringRunner.class)
-@DataJpaTest
+@DataMongoTest
 public class UnitOfMeasureRepositoryIT {
 
 	@Autowired
@@ -35,7 +33,7 @@ public class UnitOfMeasureRepositoryIT {
 	}
 
 	@Test
-	@DirtiesContext
+	// @DirtiesContext
 	public void testFindByTsps() {
 		Optional<UnitOfMeasure> optionalUom = repository.findByDescription("Teaspoon");
 		assertEquals("Teaspoon", optionalUom.get().getDescription());
@@ -51,7 +49,7 @@ public class UnitOfMeasureRepositoryIT {
 	@Test
 	@DirtiesContext
 	public void testSaveQuartAndFindByQuartAndEquals() {
-		String quart = "Quart";
+		String quart = "Quartz";
 		UnitOfMeasure uom = UnitOfMeasure.builder().description(quart).build();
 		uom = repository.save(uom);
 		assertNotNull(uom.getId());

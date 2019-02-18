@@ -3,7 +3,8 @@ package com.diligentgroup.recipes.domain;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.springframework.stereotype.Component;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -17,7 +18,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true, exclude = { "recipes" })
-@Component
+@Document
 public class Category extends DescribedEntity {
 
 	/**
@@ -35,6 +36,7 @@ public class Category extends DescribedEntity {
 	}
 
 	@Builder.Default
+	@DBRef
 	private Set<Recipe> recipes = new HashSet<>();
 
 	public Set<Recipe> getRecipes() {

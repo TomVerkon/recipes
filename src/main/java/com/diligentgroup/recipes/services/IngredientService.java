@@ -8,6 +8,6 @@ public interface IngredientService {
 
 	public IngredientCommand saveIngredient(IngredientCommand ingredientCommand);
 
-	public long deleteIngredientByIdAndRecipeId(String id, String recipeId);
+	public void deleteIngredientByIdAndRecipeId(String id, String recipeId);
 
 }

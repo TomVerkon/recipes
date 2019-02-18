@@ -35,8 +35,8 @@ public class RecipeToRecipeCommandTest {
 
 		converter = new RecipeToRecipeCommand(ingredientConverter, categoryConverter, noteConverter);
 		source = Recipe.builder().description(description).cookTime(Integer.MAX_VALUE).difficulty(Difficulty.EASY)
-				.directions("directions").id(String.valueOf(Long.MAX_VALUE)).prepTime(Integer.MAX_VALUE).servings(Integer.MIN_VALUE)
-				.source("source").url("url").build();
+				.directions("directions").id(String.valueOf(Long.MAX_VALUE)).prepTime(Integer.MAX_VALUE)
+				.servings(Integer.MIN_VALUE).source("source").url("url").build();
 		UnitOfMeasure uom = new UnitOfMeasure(String.valueOf(Long.MAX_VALUE), description);
 		source.addCategory(Category.builder().description(description).id(String.valueOf(Long.MAX_VALUE)).build());
 		source.addIngredient(new Ingredient(String.valueOf(Long.MAX_VALUE), description, BigDecimal.TEN, uom));

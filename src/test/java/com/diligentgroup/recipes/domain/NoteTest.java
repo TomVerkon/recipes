@@ -23,7 +23,6 @@ public class NoteTest {
 		// builder was used in
 		assertEquals(idValue, object.getId());
 		assertEquals(recipeNotes, object.getRecipeNotes());
-		assertNull(object.getRecipe());
 	}
 
 	@Test
@@ -33,7 +32,6 @@ public class NoteTest {
 		localObject = new Note(idValue, recipeNotes);
 		assertEquals(idValue, localObject.getId());
 		assertEquals(recipeNotes, localObject.getRecipeNotes());
-		assertNull(localObject.getRecipe());
 	}
 
 	@Test
@@ -46,7 +44,6 @@ public class NoteTest {
 
 		localObject.setId(idValue);
 		assert (localObject.equals(object));
-		localObject.setRecipe(Recipe.builder().id(idValue).build());
 		// recipe not part of equals right now
 		assert (localObject.equals(object));
 	}

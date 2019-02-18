@@ -1,20 +1,19 @@
 package com.diligentgroup.recipes.domain;
 
-import org.springframework.stereotype.Component;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 @Setter
 @Getter
 @NoArgsConstructor
 @SuperBuilder
-@EqualsAndHashCode(callSuper = true, exclude = { "recipe" })
-@Component
+@EqualsAndHashCode(callSuper = true)
+@Document
 public class Note extends BaseEntity {
 
 	/**
@@ -26,16 +25,6 @@ public class Note extends BaseEntity {
 		super(id);
 		this.recipeNotes = recipeNotes;
 	}
-
-	public Note(String id, String recipeNotes, Recipe recipe) {
-		super(id);
-		this.recipeNotes = recipeNotes;
-		this.recipe = recipe;
-	}
-
-	// no cascade because recipe manages this relationship
-	@ToString.Exclude
-	private Recipe recipe;
 
 	private String recipeNotes;
 

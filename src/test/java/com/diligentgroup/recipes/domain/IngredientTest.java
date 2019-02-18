@@ -40,9 +40,6 @@ public class IngredientTest {
 		localObject.setUom(uom);
 		Ingredient localObject2 = new Ingredient(idValue, description, amount, uom);
 		assert (localObject.equals(localObject2));
-		assertNull(localObject.getRecipe());
-		localObject2.setRecipe(Recipe.builder().id(idValue).build());
-		assertEquals(localObject, localObject2);
 	}
 
 	@Test

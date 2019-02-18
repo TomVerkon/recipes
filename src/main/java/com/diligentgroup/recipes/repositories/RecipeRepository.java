@@ -1,9 +1,9 @@
 package com.diligentgroup.recipes.repositories;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.diligentgroup.recipes.domain.Recipe;
 
-public interface RecipeRepository extends CrudRepository<Recipe, String> {
+public interface RecipeRepository extends MongoRepository<Recipe, String> {
 
 }

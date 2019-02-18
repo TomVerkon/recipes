@@ -2,7 +2,6 @@ package com.diligentgroup.recipes.services;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -22,7 +21,6 @@ import com.diligentgroup.recipes.converters.UnitOfMeasureCommandToUnitOfMeasure;
 import com.diligentgroup.recipes.converters.UnitOfMeasureToUnitOfMeasureCommand;
 import com.diligentgroup.recipes.domain.Ingredient;
 import com.diligentgroup.recipes.domain.Recipe;
-import com.diligentgroup.recipes.repositories.IngredientRepository;
 import com.diligentgroup.recipes.repositories.RecipeRepository;
 import com.diligentgroup.recipes.repositories.UnitOfMeasureRepository;
 
@@ -36,9 +34,6 @@ public class IngredientServiceImplTest {
 
 	@Mock
 	UnitOfMeasureRepository uomRepository;
-
-	@Mock
-	IngredientRepository ingredientRepository;
 
 	IngredientService ingredientService;
 
@@ -54,8 +49,8 @@ public class IngredientServiceImplTest {
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
 
-		ingredientService = new IngredientServiceImpl(recipeRepository, uomRepository, ingredientRepository,
-				ingredientToIngredientCommand, ingredientCommandToIngredient);
+		ingredientService = new IngredientServiceImpl(recipeRepository, uomRepository, ingredientToIngredientCommand,
+				ingredientCommandToIngredient);
 	}
 
 	@Test
@@ -89,7 +84,6 @@ public class IngredientServiceImplTest {
 
 		// when
 		assertEquals(String.valueOf(3L), ingredientCommand.getId());
-		assertEquals(String.valueOf(1L), ingredientCommand.getRecipeId());
 		verify(recipeRepository, times(1)).findById(anyString());
 	}
 

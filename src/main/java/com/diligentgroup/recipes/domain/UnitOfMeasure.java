@@ -1,6 +1,6 @@
 package com.diligentgroup.recipes.domain;
 
-import org.springframework.stereotype.Component;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -13,7 +13,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @SuperBuilder
 @EqualsAndHashCode(callSuper = true)
-@Component
+@Document
 public class UnitOfMeasure extends DescribedEntity {
 
 	/**

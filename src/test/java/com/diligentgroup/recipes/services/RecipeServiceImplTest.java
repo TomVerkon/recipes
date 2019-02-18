@@ -2,16 +2,15 @@ package com.diligentgroup.recipes.services;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -63,12 +62,12 @@ public class RecipeServiceImplTest {
 	public void getRecipesTest() throws Exception {
 
 		Recipe recipe = new Recipe();
-		HashSet<Recipe> receipesData = new HashSet<>();
+		List<Recipe> receipesData = new ArrayList<>();
 		receipesData.add(recipe);
 
 		when(recipeService.getAllRecipes()).thenReturn(receipesData);
 
-		Set<Recipe> recipes = recipeService.getAllRecipes();
+		List<Recipe> recipes = recipeService.getAllRecipes();
 
 		assertEquals(recipes.size(), 1);
 		verify(recipeRepository, times(1)).findAll();

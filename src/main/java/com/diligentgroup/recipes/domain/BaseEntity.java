@@ -2,6 +2,8 @@ package com.diligentgroup.recipes.domain;
 
 import java.io.Serializable;
 
+import org.springframework.data.annotation.Id;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -22,6 +24,7 @@ public abstract class BaseEntity implements Serializable {
 	 */
 	private static final long serialVersionUID = -4205582468676642223L;
 
+	@Id
 	private String id;
 
 	public boolean isNew() {

@@ -1,6 +1,7 @@
 package com.diligentgroup.recipes.services;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.stereotype.Service;
@@ -30,11 +31,12 @@ public class RecipeServiceImpl implements RecipeService {
 		this.recipeCommandToRecipe = recipeCommandToRecipe;
 	}
 
-	public Set<Recipe> getAllRecipes() {
+	public List<Recipe> getAllRecipes() {
 		log.debug("Entering getAllRecipes");
-		Set<Recipe> recipes = new HashSet<>();
-		recipeRepository.findAll().forEach(recipes::add);
-		return recipes;
+		//Set<Recipe> recipes = new HashSet<>();
+		//recipeRepository.findAll().forEach(recipes::add);
+		//return recipes;
+		return recipeRepository.findAll();
 	}
 
 	@Override

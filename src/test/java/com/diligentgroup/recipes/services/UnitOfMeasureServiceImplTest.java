@@ -5,7 +5,8 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import org.junit.Before;
@@ -38,7 +39,7 @@ public class UnitOfMeasureServiceImplTest {
 	public void testGetAllUnitOfMeasures() {
 
 		// givin - setup the mock repository return values
-		Set<UnitOfMeasure> uoms = new HashSet<>();
+		List<UnitOfMeasure> uoms = new ArrayList<>();
 		uoms.add(UnitOfMeasure.builder().id("1").build());
 		uoms.add(UnitOfMeasure.builder().id("2").build());
 

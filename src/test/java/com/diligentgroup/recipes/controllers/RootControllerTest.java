@@ -9,8 +9,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
@@ -56,13 +56,13 @@ public class RootControllerTest {
 	public void test() {
 
 		// givin
-		Set<Recipe> recipes = new HashSet<>();
+		List<Recipe> recipes = new ArrayList<>();
 		recipes.add(Recipe.builder().id("1").build());
 		recipes.add(Recipe.builder().id("2").build());
 		when(recipeService.getAllRecipes()).thenReturn(recipes);
 
 		@SuppressWarnings("unchecked")
-		ArgumentCaptor<Set<Recipe>> argumentCaptor = ArgumentCaptor.forClass(Set.class);
+		ArgumentCaptor<List<Recipe>> argumentCaptor = ArgumentCaptor.forClass(List.class);
 		String returnStr = controller.getIndexPage(model);
 		assertEquals("index", returnStr);
 		verify(recipeService, times(1)).getAllRecipes();

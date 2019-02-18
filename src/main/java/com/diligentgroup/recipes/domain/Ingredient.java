@@ -2,21 +2,21 @@ package com.diligentgroup.recipes.domain;
 
 import java.math.BigDecimal;
 
-import org.springframework.stereotype.Component;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 @Setter
 @Getter
 @NoArgsConstructor
 @SuperBuilder
-@EqualsAndHashCode(callSuper = true, exclude = { "recipe" })
-@Component
+@EqualsAndHashCode(callSuper = true)
+@Document
 public class Ingredient extends DescribedEntity {
 
 	/**
@@ -32,9 +32,7 @@ public class Ingredient extends DescribedEntity {
 		this.uom = uom;
 	}
 
+	@DBRef
 	private UnitOfMeasure uom;
-
-	@ToString.Exclude
-	private Recipe recipe;
 
 }
